@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Index - Ecommerce</title>
+{% endblock %}
+
+{% block content %}
+<h1>Ecommerce</h1>
+    {% if products %}
+        {% for product in products %}
+            {{ product.name }}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

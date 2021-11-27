@@ -1,0 +1,365 @@
+2021-11-26 00:16:39,392 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:16:39,404 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:16:40,044 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:16:40,045 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:17:05,569 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:17:05,570 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:17:06,200 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:17:06,201 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:18:04,980 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:18:04,981 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:18:05,611 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:18:05,612 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:19:05,213 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:19:05,214 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:19:05,853 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:19:05,854 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:32:15,519 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:32:15,520 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:32:16,372 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:32:16,373 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:41:17,337 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/settings.py', reloading
+2021-11-26 00:41:18,462 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:41:27,430 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:41:27,443 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:41:28,095 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:41:28,128 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:43:09,890 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:43:09,891 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:43:10,700 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:43:10,701 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:43:50,227 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:43:50,228 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:43:50,871 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:43:50,871 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:44:09,494 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:44:09,495 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:44:10,129 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:44:10,130 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:44:26,534 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:44:26,536 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:44:27,169 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:44:27,170 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:45:00,045 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:45:00,047 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:45:00,750 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:45:00,750 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:45:08,652 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 00:45:08] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 00:45:09,451 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 00:45:09] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 00:45:09,452 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 00:45:09] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 00:45:11,075 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 00:45:11] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 00:45:11,374 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 00:45:11] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 00:45:15,521 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 00:45:15] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 00:48:47,523 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:48:47,649 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:48:48,280 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:48:48,280 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 00:49:37,889 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 00:49:37,890 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 00:49:38,521 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 00:49:38,521 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:18:42,871 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:18:42,892 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:18:43,547 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:18:43,548 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:18:55,993 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:18:55] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:18:57,037 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:18:57] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:18:57,038 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:18:57] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:18:57,055 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:18:57] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:18:59,070 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:18:59] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:21:19,062 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:21:19,193 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:21:20,004 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:21:20,005 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:21:22,035 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:21:22,036 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:21:22,709 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:21:22,710 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:21:24,813 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:21:24] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:21:24,940 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:21:24] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:21:24,941 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:21:24] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:21:25,070 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:21:25] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:21:25,119 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:21:25] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:21:25,360 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:21:25] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:21:34,918 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:21:35,041 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:21:35,695 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:21:35,695 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:23:17,572 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:23:17,696 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:23:18,352 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:23:18,353 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:23:34,064 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:23:34,065 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:23:34,695 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:23:34,695 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:23:37,383 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:23:37] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:23:37,546 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:23:37] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:23:37,548 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:23:37] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:23:37,724 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:23:37] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:23:37,770 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:23:37] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:23:37,824 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:23:37] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:24:10,035 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:24:10,187 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:24:10,948 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:24:10,949 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:24:14,254 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:24:14,256 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:24:15,146 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:24:15,147 INFO werkzeug MainThread :  * Debugger PIN: 325-347-987
+2021-11-26 01:24:16,088 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:24:16] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:24:16,160 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:24:16] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:24:16,163 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:24:16] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:24:16,231 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:24:16] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:24:16,280 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:24:16] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:24:16,324 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:24:16] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:26:23,502 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:26:23,504 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:26:24,184 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:26:24,185 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:26:45,074 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:26:45] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:26:46,582 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:26:46] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:26:46,583 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:26:46] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:26:46,719 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:26:46] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:26:46,854 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:26:46] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:27:11,652 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/app.py', reloading
+2021-11-26 01:27:11,907 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:27:13,552 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:27:13,553 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:27:16,241 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:27:16,242 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:27:16,898 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:27:16,899 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:27:20,619 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:27:20] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:27:20,714 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:27:20] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:27:20,714 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:27:20] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:27:20,767 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:27:20] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:27:20,963 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:27:20] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:27:21,078 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:27:21] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:28:12,405 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/models.py', reloading
+2021-11-26 01:28:12,527 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:29:31,981 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:29:31,982 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:29:32,614 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:29:32,615 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:29:37,529 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:29:37] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:29:37,767 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:29:37] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:29:37,770 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:29:37] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:29:37,818 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:29:37] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:29:38,386 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:29:38] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:29:38,430 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:29:38] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:30:26,111 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:30:26,278 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:30:27,055 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:30:27,056 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:30:28,239 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:28] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:30:28,310 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:28] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:30:28,321 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:28] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:30:28,375 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:28] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:30:28,426 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:28] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:30:28,495 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:28] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:30:35,069 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:30:35,085 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:30:35,724 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:30:35,725 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:30:38,041 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:38] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:30:38,142 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:38] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:30:38,142 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:38] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:30:38,212 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:38] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:30:38,244 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:38] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:30:38,606 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:38] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:30:40,707 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:40] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2021-11-26 01:30:40,758 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:40] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2021-11-26 01:30:40,760 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:40] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2021-11-26 01:30:40,843 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:40] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:30:40,859 INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:40] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+2021-11-26 01:30:40,902 INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:30:40] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2021-11-26 01:34:26,781 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/settings.py', reloading
+2021-11-26 01:34:26,960 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:35:49,846 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:35:49,897 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:35:50,540 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:35:50,540 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:37:49,582 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:37:49,583 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:37:50,221 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:37:50,222 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:37:52,354 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:37:52] "GET / HTTP/1.1" 200 -
+2021-11-26 01:37:52,485 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:37:52] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:37:52,491 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:37:52] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:37:52,687 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:37:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-26 01:38:49,778 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:38:49,906 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:38:50,543 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:38:50,544 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:39:01,424 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:01] "GET / HTTP/1.1" 200 -
+2021-11-26 01:39:01,606 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:01] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:39:01,620 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:01] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:39:02,425 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:02] "GET / HTTP/1.1" 200 -
+2021-11-26 01:39:02,483 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:02] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:39:02,487 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:02] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:39:06,559 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:39:06,560 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:39:07,237 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:39:07,238 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:39:08,285 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:08] "GET / HTTP/1.1" 200 -
+2021-11-26 01:39:08,365 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:08] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:39:08,372 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:08] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:39:09,245 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:09] "GET / HTTP/1.1" 200 -
+2021-11-26 01:39:09,295 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:09] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:39:09,303 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:09] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:39:42,616 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:39:42,748 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:39:44,527 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:39:44,529 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:39:45,202 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:39:45,203 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:39:46,151 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:46] "GET / HTTP/1.1" 200 -
+2021-11-26 01:39:46,255 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:46] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:39:46,286 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:46] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:39:49,704 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:49] "GET / HTTP/1.1" 200 -
+2021-11-26 01:39:49,754 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:49] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:39:49,757 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:39:49] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:40:38,744 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:40:38,862 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:40:39,535 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:40:39,536 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:41:21,924 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/admin/urls.py', reloading
+2021-11-26 01:41:22,054 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:41:22,709 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:41:22,710 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:41:39,132 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:41:39,133 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:41:39,907 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:41:39,908 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:41:40,340 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:41:40] "GET / HTTP/1.1" 200 -
+2021-11-26 01:41:40,405 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:41:40] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:41:40,406 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:41:40] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:42:06,162 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:42:06,283 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:42:07,614 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:42:07,615 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:42:08,257 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:42:08,258 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:42:11,002 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:11] "GET / HTTP/1.1" 200 -
+2021-11-26 01:42:11,051 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:11] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:42:11,054 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:11] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:42:11,706 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:11] "GET / HTTP/1.1" 200 -
+2021-11-26 01:42:11,751 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:11] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:42:11,754 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:11] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:42:12,651 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:12] "GET / HTTP/1.1" 200 -
+2021-11-26 01:42:12,696 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:12] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:42:12,704 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:12] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:42:13,030 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:13] "GET / HTTP/1.1" 200 -
+2021-11-26 01:42:13,085 INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:13] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:42:13,088 INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:13] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:42:13,154 INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:42:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-26 01:43:06,402 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:43:06,403 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:43:07,047 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:43:07,048 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:43:08,919 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:43:08] "GET / HTTP/1.1" 200 -
+2021-11-26 01:43:08,993 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:43:08] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:43:08,997 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:43:08] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:43:09,974 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:43:09] "GET / HTTP/1.1" 200 -
+2021-11-26 01:43:10,020 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:43:10] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:43:10,020 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:43:10] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:43:30,280 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/settings.py', reloading
+2021-11-26 01:43:30,400 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:43:31,035 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:43:31,035 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:43:54,262 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/admin/urls.py', reloading
+2021-11-26 01:43:54,390 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:43:55,032 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:43:55,032 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:43:58,218 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:43:58,219 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:43:58,853 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:43:58,853 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:44:01,563 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:01] "GET / HTTP/1.1" 200 -
+2021-11-26 01:44:01,646 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:01] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:44:01,660 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:01] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:44:03,011 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:03] "GET / HTTP/1.1" 200 -
+2021-11-26 01:44:03,055 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:03] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:44:03,070 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:03] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:44:03,212 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:03] "GET / HTTP/1.1" 200 -
+2021-11-26 01:44:03,265 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:03] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:44:03,271 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:44:03] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:46:00,037 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/admin/urls.py', reloading
+2021-11-26 01:46:00,159 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:46:03,608 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:46:03,609 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:46:35,909 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/ecommerce/urls.py', reloading
+2021-11-26 01:46:36,305 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:46:38,489 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:46:38,588 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:46:39,218 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:46:39,218 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:46:45,790 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:46:45] "GET / HTTP/1.1" 200 -
+2021-11-26 01:46:45,835 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:46:45] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:46:45,838 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:46:45] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:52:17,993 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:52:17,995 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:52:18,655 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:52:18,655 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:52:20,342 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:20] "GET / HTTP/1.1" 200 -
+2021-11-26 01:52:20,429 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:20] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:52:20,434 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:20] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,233 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "GET / HTTP/1.1" 200 -
+2021-11-26 01:52:22,286 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,287 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,365 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,682 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "GET / HTTP/1.1" 200 -
+2021-11-26 01:52:22,735 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,740 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,806 INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,870 INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "GET / HTTP/1.1" 200 -
+2021-11-26 01:52:22,916 INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,923 INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:52:22,991 INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,042 INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "GET / HTTP/1.1" 200 -
+2021-11-26 01:52:23,089 INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,094 INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,165 INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,201 INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "GET / HTTP/1.1" 200 -
+2021-11-26 01:52:23,254 INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,255 INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,306 INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,346 INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "GET / HTTP/1.1" 200 -
+2021-11-26 01:52:23,398 INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /css/style.css HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,401 INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /js/turbolinks.js HTTP/1.1[0m" 404 -
+2021-11-26 01:52:23,449 INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [26/Nov/2021 01:52:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-11-26 01:53:46,535 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/app.py', reloading
+2021-11-26 01:53:46,648 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:54:06,361 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:54:06,363 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:54:07,033 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:54:07,139 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:54:12,747 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:54:12,748 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:54:13,378 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:54:13,378 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:55:45,194 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/settings.py', reloading
+2021-11-26 01:55:45,323 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:55:46,201 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:55:46,201 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:55:55,117 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:55:55,121 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:55:55,763 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:55:55,764 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:56:32,101 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/settings.py', reloading
+2021-11-26 01:56:32,223 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:56:33,291 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:56:33,291 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:57:05,601 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/tools/logger.py', reloading
+2021-11-26 01:57:05,764 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:57:09,266 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:57:09,364 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:57:10,003 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:57:10,003 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
+2021-11-26 01:57:55,415 INFO werkzeug MainThread :  * Detected change in '/home/orion/Documentos/ecommerce/settings.py', reloading
+2021-11-26 01:57:55,537 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:57:57,108 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-11-26 01:57:57,110 INFO werkzeug MainThread :  * Restarting with stat
+2021-11-26 01:57:57,746 WARNING werkzeug MainThread :  * Debugger is active!
+2021-11-26 01:57:57,747 INFO werkzeug MainThread :  * Debugger PIN: 143-957-432
