@@ -1,2 +1,2 @@
-# flask-ecommerce
+# Ecommerce
 CMS/Ecommerce developed in flask
