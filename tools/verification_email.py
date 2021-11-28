@@ -3,7 +3,7 @@ from datetime import datetime as dt
 from tools.send_email import send_email
 
 
-class VerificateEmail():
+class VerificateEmail:
     """ Singleton pattern for email verification
 
         An instance generates a global list, using the

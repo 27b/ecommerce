@@ -45,7 +45,7 @@ login_manager.session_protection = 'strong'
 # Lgoin manager handlers
 @login_manager.user_loader
 def user_loader(user_id: int):
-    return db.query('users').filter_by(id=user_id).first()
+    return User.query.filter_by(id=user_id).first()
 
 @login_manager.unauthorized_handler
 def unauthorized():

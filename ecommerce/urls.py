@@ -33,7 +33,7 @@ def register():
 
         if not email_in_db:
             new_user = User(email=email)
-            new_user.set_password = password
+            new_user.set_password(password)
             db.session.add(new_user)
             db.session.commit()
 
@@ -41,7 +41,7 @@ def register():
 
             return redirect(url_for('ecommerce.login'))
 
-        flash('Email already in use.', 'info')
+        flash('Email already in use.', 'error')
 
     return render_template('views/auth.html', form=form, form_view='register')
 
@@ -62,11 +62,11 @@ def login():
 
         # Validate user values
         if user_in_db and user_in_db.check_password(password):
-            login_user(user)
+            login_user(user_in_db)
             return redirect(url_for('ecommerce.user'))
 
         # If not user in db
-        flash('Email already in use.', 'info')
+        flash('Email already in use.', 'error')
 
     return render_template('views/auth.html', form=form, form_view='login')
 

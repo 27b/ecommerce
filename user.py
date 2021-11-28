@@ -1,7 +1,7 @@
 from settings import db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime as dt
+from datetime import datetime
 
 
 class User(db.Model, UserMixin):
@@ -11,12 +11,17 @@ class User(db.Model, UserMixin):
     role = db.Column(db.Integer, index=True)
     email = db.Column(db.String(50), index=True, unique=True)
     confirmed_email = db.Column(db.Boolean, default=False)
-    pw_hash = db.Column(db.String(64), index=False)
-    joined_at = db.Column(db.DateTime, index=True, default=dt.utcnow)
+    pw_hash = db.Column(db.String(102), index=False)
+    joined_at = db.Column(db.DateTime, index=True, default=User.__set_utcnow())
 
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
+    @classmethod
+    def __set_utcnow(cls) -> str:
+        datetime_now = datetime.utcnow()
+        return datetime_now.strftime("%Y-%m-%d %H:%M")
 
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+    def set_password(self, password) -> None:
+        self.pw_hash = generate_password_hash(password)
+
+    def check_password(self, password) -> bool:
+        return check_password_hash(self.pw_hash, password)
 

@@ -11,7 +11,7 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length
 class RegisterForm(FlaskForm):
     """ Used in /register for auth. """
     email = StringField('Email', validators = [
-        DataRequired(), Length(min=20, max=50)
+        DataRequired(), Length(min=8, max=50)
     ])
     password = PasswordField('Password', validators = [
         DataRequired(), Length(min=8, max=50)
@@ -25,7 +25,7 @@ class RegisterForm(FlaskForm):
 class LoginForm(FlaskForm):
     """ Used in /login for auth. """
     email = StringField('Email', validators = [
-        DataRequired(), Length(min=5, max=35)
+        DataRequired(), Length(min=8, max=35)
     ])
     password = PasswordField('Password', validators = [
         DataRequired(), Length(min=8, max=50)
