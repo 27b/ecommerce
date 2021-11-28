@@ -43,7 +43,7 @@ def register():
 
         flash('Email already in use.', 'info')
 
-    return render_template('views/register.html', form=form)
+    return render_template('views/auth.html', form=form, form_view='register')
 
 
 @ecommerce.route('/login', methods=['GET', 'POST'])
@@ -68,7 +68,7 @@ def login():
         # If not user in db
         flash('Email already in use.', 'info')
 
-    return render_template('login.html', form=form)
+    return render_template('views/auth.html', form=form, form_view='login')
 
 
 @ecommerce.route('/lost-password/', methods=['GET', 'POST'])

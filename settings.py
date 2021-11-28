@@ -11,7 +11,6 @@ from os import getenv
 # APPLICACION INSTANCE
 app = Flask(__name__, static_url_path="/")
 
-
 # APPLICACION CONFIG
 load_dotenv()
 app.config['FLASK_ENV'] = getenv('FLASK_ENV')
@@ -22,11 +21,9 @@ app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=90)
 app.config['TESTING'] = True
 #app.config['DEBUG'] = True
 
-
 # CSRF PROTECTION
 csrf = CSRFProtect()
 csrf.init_app(app)
-
 
 # DATABASE CONFIG
 db = SQLAlchemy()
@@ -38,7 +35,6 @@ from ecommerce.models import *
 from admin.models import *
 
 migrate = Migrate(app, db)
-
 
 # LOGIN MANAGER
 # Configure the behavior of sessions.
