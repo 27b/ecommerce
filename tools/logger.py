@@ -1,5 +1,6 @@
-#import logging
+# FOR NOW, USE THE LOGGER OF FLASK.
 
+#import logging
 
 #logger = logging.basicConfig (
 #    filename = 'logs.txt',

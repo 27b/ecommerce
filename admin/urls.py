@@ -13,6 +13,8 @@ def check_admin():
 @admin.route('/')
 @login_required
 def index():
+    """ Dashboard. """
+    check_admin()
     return render_template('views/index.html')
 
 

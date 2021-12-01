@@ -1,36 +1,42 @@
 from datetime import datetime as dt
 
 
-class datetime_formatter:
+class datetime_generator:
     """ Abstraction of datetime module for format date and time. """
     
     @classmethod
-    def datetime(date=False, time=False, time_seconds=False):
+    def _datetime(cls, date=None, time=None, time_seconds=None):
         """ Build datetime string with the kwargs and clean whitespaces. """
         datetime = ""
-        if date: datetime += dt.strftime("%Y-%m-%d ")
-        if time: datetime += dt.strftime("%H:%M")
-        if time_seconds: datetime += dt.strftime(":%S")
+        utcnow = dt.utcnow()
+        if date: datetime += utcnow.strftime("%Y-%m-%d ")
+        if time: datetime += utcnow.strftime("%H:%M")
+        if time_seconds: datetime += utcnow.strftime(":%S")
 
-        return datetime.strip() | raise Exception(f"Formatting: {datetime}")
+        return datetime.strip() #  | raise Exception(f"Formatting: {datetime}")
 
     @classmethod
-    def utcnow_with_seconds():
+    def utcnow_with_seconds(cls) -> str:
         """ Returns YY-mm-dd HH:MM:SS. """
-        return datetime(date=True, time=True, time_seconds=True) 
+        return cls._datetime(date=True, time=True, time_seconds=True) 
 
     @classmethod
-    def utcnow():
+    def utcnow(cls) -> str:
         """ Returns YY-mm-dd HH:MM. """
-        return datetime(date=True, time=True)
+        return cls._datetime(date=True, time=True)
 
     @classmethod
-    def utcnow_date():
+    def utcnow_date(cls) -> str:
         """ Returns YY-mm-dd. """
-        return datetime(time=True)
+        return cls._datetime(time=True)
 
 
 class datetime_comparison:
     """ Abstraction of datetime module for compare date adn time. """
     pass
+
+if __name__ == '__main__':
+    print(datetime_generator.utcnow_with_seconds())
+    print(datetime_generator.utcnow())
+    print(datetime_generator.utcnow_date())
 
