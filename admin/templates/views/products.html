@@ -1,0 +1,28 @@
+{% extends 'admin_base.html' %}
+
+{% block head %}
+<title>Products - Admin Panel</title>
+{% endblock %}
+
+{% block content %}
+<div class="main">
+  {% if action == 'add' %}
+      <h3 class="title">Products</h3>
+    
+  {% elif action == 'edit' %}
+      <h3 class="title">Create product</h3>
+
+  {% else %}
+      <h3 class="title">Edit Product</h3>
+  {% endif %}
+</div>
+<div class="tools">
+        <h3 class="title">Tools</h3>
+        <a class="button bg-g-blue" href="/admin/products/new-product">New product</a>
+        <a class="button bg-g-cyan" href="#">Visible products</a>
+        <a class="button bg-g-cyan" href="#">Invisible products</a>
+        <a class="button bg-g-orange" href="#">Trends</a>
+        <a class="button bg-g-black" href="#">Products in carts</a>
+        <a class="button bg-g-black" href="#">Paper bin</a>
+</div>
+{% endblock %}

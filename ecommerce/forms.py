@@ -1,10 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import (
-    StringField,
-    PasswordField,
-    BooleanField,
-    SubmitField,
-)
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 
@@ -32,11 +27,6 @@ class LoginForm(FlaskForm):
     ])
     remember = BooleanField('Remember')
     submit = SubmitField('Sign In')
-
-
-class ProductForm(FlaskForm):
-    """ Used in /admin-panel for add and edit products. """
-    pass
 
 
 class PaymentForm(FlaskForm):

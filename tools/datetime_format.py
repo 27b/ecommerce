@@ -13,7 +13,7 @@ class datetime_generator:
         if time: datetime += utcnow.strftime("%H:%M")
         if time_seconds: datetime += utcnow.strftime(":%S")
 
-        return datetime.strip() #  | raise Exception(f"Formatting: {datetime}")
+        return datetime.strip()
 
     @classmethod
     def utcnow_with_seconds(cls) -> str:

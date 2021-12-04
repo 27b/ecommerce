@@ -14,9 +14,9 @@ class User(db.Model, UserMixin):
     pw_hash = db.Column(db.String(102), index=False)
     joined_at = db.Column(db.DateTime, index=True, default=dtg.utcnow())
 
-    def set_password(self, password) -> None:
+    def set_password(self, password: str) -> None:
         self.pw_hash = generate_password_hash(password)
 
-    def check_password(self, password) -> bool:
+    def check_password(self, password: str) -> bool:
         return check_password_hash(self.pw_hash, password)
 

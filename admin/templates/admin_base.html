@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/style.css') }}">
+        <script charset="utf-8" src="/js/turbolinks.js"></script>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <header class="header">
+            <div class="title">
+                <h1 class="text">Admin Panel</h1>
+            </div>
+            <nav class="navbar">
+                <a class="link" href="/">Ecommerce</a>
+                <a class="link" href="/logout">Logout</a>
+                <a class="link" href="/me/">@{{ current_user.email.split('@')[0] }}</a>
+            </nav>
+        </header>
+        <div class="container" role="main">
+            <div class="sidebar">
+                <a class="link" href="/admin/"><span class="bubble bg-green"></span>Dashboard</a>
+                <a class="link" href="/admin/users"><span class="bubble bg-green"></span>Users</a>
+                <a class="link" href="/admin/products"><span class="bubble bg-green"></span>Products</a>
+                <a class="link" href="/admin/orders"><span class="bubble bg-green"></span>Orders</a>
+                <a class="link" href="/admin/auth-in-process"><span class="bubble bg-green"></span>Verifications</a>
+                <a class="link" href="/admin/logs"><span class="bubble bg-green"></span>Logs</a>
+                <a class="link" href="/admin/settings"><span class="bubble bg-green"></span>Settings</a>
+            </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+                <div class="notifications">
+                    <h3 class="title">Notifications</h3>
+                    <div class="notification">
+                        <div class="head">
+                            <div class="title">Hello World</div>
+                            <div class="datetime">2021-12-3 16:22</div>
+                        </div>
+                        <div class="content">
+                            Hello World
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </body>
+</html>
