@@ -1,7 +1,7 @@
 # Custom
 database.db
 logs.txt
-ecommerce/static/images/uploads/*
+ecommerce/static/images/uploads/**
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
