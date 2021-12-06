@@ -125,11 +125,24 @@ body {
     margin-left: 5px;
 }
 
+.container .content .main,
+.container .content .tools,
+.container .content .notifications {
+    scroll: visible;
+}
+
+.container .content .main::-webkit-scrollbar,
+.container .content .tools::-webkit-scrollbar,
+.container .content .notifications::-webkit-scrollbar {
+    width: 0;
+}
+
 .container .content .main .title, 
 .container .content .tools .title,
 .container .content .notifications .title {
-    color: #fff;
-    background-color: #ccc;
+    color: #00dbc8;
+    background-color: #eee;
+    font-weight: 300;
     padding: 11px 15px;
     border-radius: 3px;
 }
@@ -141,6 +154,30 @@ body {
     padding: 10px 5px;
 }
 
+.container .content .main .form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content .main .form input {
+    backgroud-color: #eee;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container .content .main .form input[type=submit] {
+    color: #fff;
+    background-color: #6cc9ff;
+    border: none;
+    cursor: pointer;
+}
+
+.container .content .main .form input[type=submit]:hover {
+    background-color: #5bb1e2;
+}
+
 .container .content .main .button {
     display: block;
     color: #fff;
@@ -149,6 +186,52 @@ body {
     margin: 10px 0 0px 0;
     border-radius: 3px;
 }
+
+.container .content .main .product-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content .main .product-list .product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.container .content .main .product-list .product .information {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container .content .main .product-list .product .information .image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.container .content .main .product-list .product .information .title {
+    color: #000;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.container .content .main .product-list .product .actions {
+    display: flex;
+    flex-direction: row;
+}
+
+.container .content .main .product-list .product .actions .link {
+    padding: 10px;
+    background-color: #ccc;
+    margin-left: 10px;
+    border-radius: 3px;
+    color: #fff;
+}
+
+
 
 .container .content .tools {
     display: flex;

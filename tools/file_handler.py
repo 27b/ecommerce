@@ -8,3 +8,4 @@ class IFile:
 class FileHandler:
     """ Interface for File Handler. """
     pass
+

@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/style.css') }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"></script>
         <script charset="utf-8" src="/js/turbolinks.js"></script>
         {% block head %}{% endblock %}
     </head>
@@ -15,7 +16,10 @@
             <nav class="navbar">
                 <a class="link" href="/">Ecommerce</a>
                 <a class="link" href="/logout">Logout</a>
-                <a class="link" href="/me/">@{{ current_user.email.split('@')[0] }}</a>
+                <a class="link" href="/me/">
+                    {% if current_user.role == 2 %}
+                        @{{ current_user.email.split('@')[0] }}</a>
+                    {% endif %}
             </nav>
         </header>
         <div class="container" role="main">

@@ -33,8 +33,8 @@ class Product(db.Model):
     """ Products for cart. """
     __tablename__ = 'products'
     id = db.Column(db.Integer, primary_key=True)
-    photo_list = db.Column(db.PickleType, nullable=True)
-    category = db.Column(db.PickleType, nullable=False)
+    images = db.Column(db.PickleType, nullable=False)
+    category = db.Column(db.String, nullable=False)
     stock = db.Column(db.Integer, index=True, unique=False)
     name = db.Column(db.String(50), index=True, unique=False)
     information = db.Column(db.String(500), index=True, unique=False)

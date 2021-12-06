@@ -5,7 +5,7 @@ from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager
 from dotenv import load_dotenv
 from datetime import timedelta
-from os import getenv
+from os import getenv, getcwd
 
 
 # APPLICACION INSTANCE
@@ -18,6 +18,8 @@ app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=90)
+app.config['UPLOAD_FOLDER'] = getcwd() + '/ecommerce/static/images/uploads'
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 app.config['TESTING'] = True
 #app.config['DEBUG'] = True
 
@@ -55,6 +57,6 @@ def unauthorized():
 if __name__ == '__main__':
     """ Run "settings.py" for create database. """
     with app.app_context():
-        db.drop_all()
+        #db.drop_all()
         db.create_all(app=app)
 

@@ -1,6 +1,9 @@
 from flask_wtf import FlaskForm
+from wtforms import MultipleFileField
 from wtforms import StringField, SubmitField, IntegerField, BooleanField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, NumberRange
+from werkzeug.utils import secure_filename
+
 
 # PRODUCT
 class CategoryForm():
@@ -24,10 +27,14 @@ class ProductForm(FlaskForm):
         DataRequired(), Length(min=10, max=20)
     ])
     stock = IntegerField('Product Stock', validators = [
-        DataRequired(), Length(min=1, max=5)
+        DataRequired(), NumberRange(min=0, max=1000000)
     ])
     price = IntegerField('Product Price', validators = [
-        DataRequired(), Length(min=1, max=10)
+        DataRequired(), NumberRange(min=0, max=1000000)
     ])
     visible = BooleanField()
+    images = MultipleFileField(render_kw = {
+        'multiple': True
+    })
     submit = SubmitField()
+
