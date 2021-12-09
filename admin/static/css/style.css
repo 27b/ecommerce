@@ -54,6 +54,8 @@ body {
 
 .bg-black { background-color: #000; }
 
+.bg-grey { background-color: #999; }
+
 .bg-green { background-color: #44F169; }
 
 .bg-orange { background-color: #F1CF44; }
@@ -63,8 +65,6 @@ body {
 .bg-blue { background-color: #4682b4; }
 
 .bg-cyan { background-color: #44D9F1; }
-
-
 
 /* Navbar */
 .header {
@@ -149,7 +149,7 @@ body {
 .container .content .main .title, 
 .container .content .tools .title,
 .container .content .notifications .title {
-    color: #00dbc8;
+    color: cadetblue;
     background-color: #eee;
     font-weight: 300;
     padding: 11px 15px;
@@ -186,6 +186,72 @@ body {
 .container .content .main .form input[type=submit]:hover {
     background-color: #5bb1e2;
 }
+
+.container .content .main .form .delete {
+    color: #F16644;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #F16644;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 13px;
+}
+
+.container .content .main .form .delete:hover {
+    color: #fff;
+    background-color: #F16644;
+}
+
+/* Checkbox by: https://dev.to/dcodeyt/creating-a-css-only-toggle-switch-5cg3 */
+.toggle {
+    --width: 40px;
+    --height: calc(var(--width) / 2);
+    --border-radius: calc(var(--height) / 2);
+
+    display: flex;
+    align-items: center;
+    height: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.toggle__input {
+    display: none;
+}
+
+.toggle__fill {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    margin-right: 10px;
+    border-radius: var(--border-radius);
+    background: #dddddd;
+    transition: background 0.2s;
+}
+
+.toggle__fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--height);
+    width: var(--height);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: var(--border-radius);
+    transition: transform 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill {
+    background: #32c9ff;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+    transform: translateX(var(--height));
+}
+/* End checkbox */
+
 
 .container .content .main .button {
     display: block;
@@ -237,13 +303,16 @@ body {
 
 .container .content .main .product-list .product .actions .link {
     padding: 10px;
-    background-color: #ccc;
     margin-left: 10px;
+    border: 1px solid #17bb56;
     border-radius: 3px;
-    color: #fff;
+    color: #17bb56;
 }
 
-
+.container .content .main .product-list .product .actions .link:hover {
+    color: #fff;
+    background-color: #17bb56;
+}
 
 .container .content .tools {
     display: flex;
@@ -274,7 +343,7 @@ body {
     display: flex;
     flex-direction: column;
     background: #222;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 17px;
     color: #eee;
     margin-top: 10px;
@@ -291,6 +360,10 @@ body {
 }
 
 .container .content .notifications .notification .head .datetime {
+    font-size: 12px;
+}
+
+.container .content .notifications .notification .body {
     font-size: 12px;
 }
 

@@ -2,9 +2,10 @@ from flask import current_app, Blueprint, render_template, request, redirect,\
                   url_for, flash
 from flask_login import login_required, current_user
 from admin.forms import ProductForm
+from admin.models import Notification
 from ecommerce.models import Product
 from tools.database import db
-from tools.tools import safe_url
+from tools.tools import safe_url, create_notification
 from os import path
 from uuid import uuid4
 
@@ -16,6 +17,16 @@ admin = Blueprint('admin',__name__, template_folder='templates',
 def check_admin():
     if not current_user.is_authenticated or current_user.role != 2:
         return redirect(url_for('ecommerce.home'))
+
+
+@admin.context_processor
+def inject_notifications():
+    notifications = Notification.query \
+                                .order_by(Notification.datetime.desc()) \
+                                .limit(20) \
+                                .all() \
+    
+    return dict(notifications=notifications)
 
 
 @admin.route('/')
@@ -50,12 +61,13 @@ def new_product():
             product.visible = form.visible.data
             product.url = safe_url(product.name)['result']
 
-            secure_filenames = []
-
             name_in_use = Product.query.filter_by(name=product.name).first()
-            
-            if name_in_use:
-                raise Exception('Product name already in use.')
+            url_in_use = Product.query.filter_by(url=product.url).first()
+
+            if name_in_use: raise Exception('Name already in use.')
+            if url_in_use: raise Exception('URL in use, change the name.')
+
+            secure_filenames = []
 
             for file in form.images.data:
                 if file.filename == '':
@@ -73,6 +85,11 @@ def new_product():
             
             db.session.add(product)
             db.session.commit()
+
+            create_notification (
+                'New product',
+                f'The product {product.name} has been created.'
+            )
         
         except Exception as e:
             result = {'message': f'{e}', 'badge': 'error'}
@@ -86,9 +103,29 @@ def new_product():
 
 @admin.route('/products/<product_url>/<action>/', methods=['GET', 'POST'])
 @login_required
-def products_product(product_url, action):
+def products_action(product_url, action):
     """ Edit, update and delete products. """
-    pass
+    product = Product.query.filter_by(url=product_url).first()
+
+    if product and request.method == 'GET' and action == 'update':
+        form = ProductForm()
+        form.name.data = product.name
+        form.information.data = product.information
+        form.category.data = product.category
+        form.stock.data = product.stock
+        form.price.data = product.price
+        form.visible.data = product.visible
+
+        return render_template('views/products.html', form=form,\
+                                action='update', product=product)
+    else:
+        return redirect(url_for('admin.products'))
+
+    if request.method == 'POST' and action == 'update':
+        pass
+
+    if request.method == 'POST' and action == 'delete':
+        pass
 
 
 @admin.route('/categories/')

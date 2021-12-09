@@ -37,15 +37,15 @@
                 {% endblock %}
                 <div class="notifications">
                     <h3 class="title">Notifications</h3>
-                    <div class="notification">
-                        <div class="head">
-                            <div class="n-title">Hello World</div>
-                            <div class="datetime">2021-12-3 16:22</div>
+                    {% for notification in notifications %}
+                        <div class="notification">
+                            <div class="head">
+                                <div class="n-title"><span class="bubble bg-green"></span>{{ notification.title }}</div>
+                                <div class="datetime">{{ notification.datetime }}</div>
+                            </div>
+                            <div class="body">{{ notification.information }}</div>
                         </div>
-                        <div class="body">
-                            Hello World
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

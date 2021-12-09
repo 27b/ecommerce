@@ -6,55 +6,96 @@
 
 {% block content %}
 <div class="main">
+    <h3 class="title">
+        {% if action == None %} Products
+        {% elif action == 'add' %} Create Product
+        {% elif action == 'update' %} Update Product: {{ product.name }}
+        {% else %} Error
+        {% endif %}
+    </h3>
+    
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'info' %}
+                    <div class="banner bg-green">{{ message }}</div>
+                {% elif category == 'error' %}
+                    <div class="banner bg-red"><b>Error:</b> {{ message }}</div>
+                {% else %}
+                    <div class="banner bg-blue">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     {% if action == None %}
-        <h3 class="title">Products</h3>
         <div class="product-list">
             {% for product in products %}
                 <div class="product">
                     <div class="information">
                         <img class="image" src="/static/images/uploads/{{product.images[0]}}" alt="{{product.name}}"/>
-                        <p class="title">{{ product.name }}</p>
+                        <p class="title">
+                            {% if product.visible == 1 %}
+                                <span class="bubble bg-blue"></span>
+                            {% else %}
+                                <span class="bubble bg-grey"></span>
+                            {% endif %}
+                            <span>({{ product.stock }})</span>
+                            {{ product.name }}
+                        </p>
                     </div>
                     <div class="actions">
-                        <a class="link" href="#" target="_blank">View</a>
-                        <a class="link" href="#">Edit</a>
+                        <a class="link" href="/products/{{product.url}}" target="_blank">View</a>
+                        <a class="link" href="/admin/products/{{product.url}}/update/">Update</a>
                     </div>
                 </div>
             {% endfor %}
         </div>
 
+
     {% elif action == 'add' %}
-        <h3 class="title">Create product</h3>
-        {% with messages = get_flashed_messages(with_categories=True) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    {% if category == 'info' %}
-                        <div class="banner bg-green">{{ message }}</div>
-                    {% elif category == 'error' %}
-                        <div class="banner bg-red"><b>Error:</b> {{ message }}</div>
-                    {% else %}
-                        <div class="banner bg-blue">{{ message }}</div>
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
         <form class="form" action="" method="post" accept-charset="utf-8" enctype=multipart/form-data>
             {{ form.name(placeholder="Product name") }}
             {{ form.information(placeholder="Product information") }}
             {{ form.category(placeholder="Category") }}
             {{ form.stock(placeholder="Stock") }}
             {{ form.price(placeholder="Price") }}
-            <p>{{ form.visible() }} {{ form.visible.label }}</p>
+            <label class="toggle" for="myToggle">
+                <input class="toggle__input" name="visible" type="checkbox" id="myToggle">
+                <div class="toggle__fill"></div>
+                <span>Visible product</span>
+            </label>
             {{ form.csrf_token }}
             {{ form.images }}
-            {{ form.submit() }}
+            {{ form.submit(value="Create") }}
         </form>
 
-  {% else %}
-      <h3 class="title">Edit Product</h3>
+
+    {% elif action == 'update' %}
+        <form class="form" action="" method="post" accept-charset="utf-8" enctype=multipart/form-data>
+            {{ form.name(placeholder="Product name") }}
+            {{ form.information(placeholder="Product information") }}
+            {{ form.category(placeholder="Category") }}
+            {{ form.stock(placeholder="Stock") }}
+            {{ form.price(placeholder="Price") }}
+            <label class="toggle" for="myToggle">
+                <input type="checkbox" class="toggle__input" name="visible" id="myToggle">
+                <div class="toggle__fill"></div>
+                <span>Visible product (Default: Invisible)</span>
+            </label>
+            {{ form.csrf_token }}
+            {{ form.submit(value="Update") }}
+            <a class="delete" href="/admin/products/{{product.url}}/delete/">Delete</a>
+        </form>
+        
+        
+    {% else %}
+        <p>Error.</p>
+
 
   {% endif %}
 </div>
+
 <div class="tools">
     <h3 class="title">Tools</h3>
     <a class="button bg-g-blue" href="/admin/products/new-product/">New product</a>
