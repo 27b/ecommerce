@@ -36,7 +36,7 @@ class Product(db.Model):
     images = db.Column(db.PickleType, nullable=False)
     category = db.Column(db.String, nullable=False)
     stock = db.Column(db.Integer, index=True, unique=False)
-    name = db.Column(db.String(50), index=True, unique=False)
+    name = db.Column(db.String(50), index=True, unique=True)
     information = db.Column(db.String(500), index=True, unique=False)
     url = db.Column(db.String(200), index=True, unique=True)
     price = db.Column(db.Integer, index=True, unique=False)

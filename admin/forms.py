@@ -33,8 +33,6 @@ class ProductForm(FlaskForm):
         DataRequired(), NumberRange(min=0, max=1000000)
     ])
     visible = BooleanField()
-    images = MultipleFileField(render_kw = {
-        'multiple': True
-    })
+    images = MultipleFileField('File(s) Upload', render_kw={'multiple': True})
     submit = SubmitField()
 

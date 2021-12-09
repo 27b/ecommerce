@@ -47,7 +47,7 @@ def register():
     return render_template('views/auth.html', form=form, form_view='register')
 
 
-@ecommerce.route('/login', methods=['GET', 'POST'])
+@ecommerce.route('/login/', methods=['GET', 'POST'])
 def login():
     """ Send and get form with data, validate the data and login user. """
 

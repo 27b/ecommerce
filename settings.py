@@ -21,7 +21,7 @@ app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=90)
 app.config['UPLOAD_FOLDER'] = getcwd() + '/ecommerce/static/images/uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 app.config['TESTING'] = True
-#app.config['DEBUG'] = True
+app.config['DEBUG'] = True
 
 # CSRF PROTECTION
 csrf = CSRFProtect()
@@ -57,6 +57,6 @@ def unauthorized():
 if __name__ == '__main__':
     """ Run "settings.py" for create database. """
     with app.app_context():
-        #db.drop_all()
+        db.drop_all()
         db.create_all(app=app)
 

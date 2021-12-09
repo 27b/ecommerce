@@ -27,8 +27,14 @@
         <h3 class="title">Create product</h3>
         {% with messages = get_flashed_messages(with_categories=True) %}
             {% if messages %}
-                {% for message in messages %}
-                    <p>Error: {{ message }}</p>
+                {% for category, message in messages %}
+                    {% if category == 'info' %}
+                        <div class="banner bg-green">{{ message }}</div>
+                    {% elif category == 'error' %}
+                        <div class="banner bg-red"><b>Error:</b> {{ message }}</div>
+                    {% else %}
+                        <div class="banner bg-blue">{{ message }}</div>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         {% endwith %}
@@ -51,7 +57,7 @@
 </div>
 <div class="tools">
     <h3 class="title">Tools</h3>
-    <a class="button bg-g-blue" href="/admin/products/new-product">New product</a>
+    <a class="button bg-g-blue" href="/admin/products/new-product/">New product</a>
     <a class="button bg-g-cyan" href="#">Visible products</a>
     <a class="button bg-g-cyan" href="#">Invisible products</a>
     <a class="button bg-g-orange" href="#">Trends</a>

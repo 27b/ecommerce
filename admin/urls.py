@@ -1,12 +1,5 @@
-from flask import (
-    current_app,
-    Blueprint,
-    render_template,
-    request,
-    redirect,
-    url_for,
-    flash
-)
+from flask import current_app, Blueprint, render_template, request, redirect,\
+                  url_for, flash
 from flask_login import login_required, current_user
 from admin.forms import ProductForm
 from ecommerce.models import Product
@@ -14,7 +7,6 @@ from tools.database import db
 from tools.tools import safe_url
 from os import path
 from uuid import uuid4
-#from tools.logger import logger
 
 
 admin = Blueprint('admin',__name__, template_folder='templates',
@@ -22,14 +14,16 @@ admin = Blueprint('admin',__name__, template_folder='templates',
 
 @admin.before_request
 def check_admin():
-    if current_user.role != 2:
+    if not current_user.is_authenticated or current_user.role != 2:
         return redirect(url_for('ecommerce.home'))
+
 
 @admin.route('/')
 @login_required
 def index():
     """ Dashboard. """
     return render_template('views/index.html')
+
 
 @admin.route('/products/', methods=['GET', 'POST'])
 @login_required
@@ -39,44 +33,49 @@ def products():
     return render_template('views/products.html', action=None, products=prods)
 
 
-@admin.route('/products/new-product', methods=['GET', 'POST'])
+@admin.route('/products/new-product/', methods=['GET', 'POST'])
 @login_required
 def new_product():
     """ Create new product. """
     form = ProductForm()
 
-    if form.validate_on_submit(): 
-        product = Product()
-        product.name = form.name.data
-        product.information = form.information.data
-        product.category = form.category.data
-        product.stock = int(form.stock.data)
-        product.price = int(form.price.data)
-        product.visible = form.visible.data
-        product.url = safe_url(product.name)['result']
-
-        secure_filenames = []
-
-        print(f'FORM: {form}')
-        print(f'FORM FILES: {form.images}')
-        print(f'FORM FILES DATA: {form.images.data}')
-
-        for file in form.images.data:
-            file_name = uuid4().hex
-            file.save(path.join(current_app.config['UPLOAD_FOLDER'], file_name))
-            secure_filenames.append(file_name)
-        
-        product.images = secure_filenames
-
-        result = {'message': None, 'badge': None}
-        
+    if form.validate_on_submit():
         try:
+            product = Product()
+            product.name = form.name.data
+            product.information = form.information.data
+            product.category = form.category.data
+            product.stock = int(form.stock.data)
+            product.price = int(form.price.data)
+            product.visible = form.visible.data
+            product.url = safe_url(product.name)['result']
+
+            secure_filenames = []
+
+            name_in_use = Product.query.filter_by(name=product.name).first()
+            
+            if name_in_use:
+                raise Exception('Product name already in use.')
+
+            for file in form.images.data:
+                if file.filename == '':
+                    raise Exception('No selected file.')
+                else:
+                    file_name = uuid4().hex
+                    directory = current_app.config['UPLOAD_FOLDER']
+                    file.save(path.join(directory, file_name))
+                    secure_filenames.append(file_name)
+        
+            if secure_filenames != []:
+                product.images = secure_filenames
+
             result = {'message': 'Product saved.', 'badge': 'info'}
+            
             db.session.add(product)
             db.session.commit()
         
         except Exception as e:
-            result = {'message': f'Error: {e}', 'badge': 'error'}
+            result = {'message': f'{e}', 'badge': 'error'}
             db.session.rollback()
         
         finally:
@@ -85,7 +84,7 @@ def new_product():
     return render_template('views/products.html', form=form, action='add')
 
 
-@admin.route('/products/<product_url>/<action>', methods=['GET', 'POST'])
+@admin.route('/products/<product_url>/<action>/', methods=['GET', 'POST'])
 @login_required
 def products_product(product_url, action):
     """ Edit, update and delete products. """
@@ -110,7 +109,7 @@ def files():
     pass
 
 
-@admin.route('users')
+@admin.route('/users/')
 @login_required
 def users():
     pass

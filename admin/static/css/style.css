@@ -13,6 +13,15 @@ body {
 }
 
 /* Global */
+.banner {
+    transition: all 0.5s ease-out;
+    padding: 14px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+
 .bubble {
     display: inline-block;
     width: 10px;
@@ -128,7 +137,7 @@ body {
 .container .content .main,
 .container .content .tools,
 .container .content .notifications {
-    scroll: visible;
+    overflow-y: scroll;
 }
 
 .container .content .main::-webkit-scrollbar,
@@ -207,9 +216,12 @@ body {
 }
 
 .container .content .main .product-list .product .information .image {
+    background-color: #ddd;
     width: 80px;
     height: 80px;
     border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .container .content .main .product-list .product .information .title {
@@ -256,5 +268,29 @@ body {
     flex-direction: column;
     width: 30%;
     padding: 10px 10px 10px 5px;
+}
+
+.container .content .notifications .notification {
+    display: flex;
+    flex-direction: column;
+    background: #222;
+    border-radius: 5px;
+    padding: 17px;
+    color: #eee;
+    margin-top: 10px;
+}
+
+.container .content .notifications .notification .head {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.container .content .notifications .notification .head .n-title {
+    font-weight: bold;
+}
+
+.container .content .notifications .notification .head .datetime {
+    font-size: 12px;
 }
 
