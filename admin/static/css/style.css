@@ -262,6 +262,40 @@ body {
     border-radius: 3px;
 }
 
+.container .content .main .product-images {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+
+.container .content .main .product-images .image {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
+
+.container .content .main .product-images .image img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.container .content .main .product-images .button {
+    filter: contrast(0.95);
+}
+
+.container .content .main .product-images .image a {
+    color: #F16644;
+    align-self: center;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 0 20px #0001;
+}
+
 .container .content .main .product-list {
     display: flex;
     flex-direction: column;

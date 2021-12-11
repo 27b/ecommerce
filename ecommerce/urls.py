@@ -4,7 +4,6 @@ from ecommerce.forms import RegisterForm, LoginForm
 from ecommerce.models import Category, Product
 from user import User
 from settings import db
-#from tools.logger import logger
 
 
 ecommerce = Blueprint('ecommerce', __name__, template_folder='templates',
@@ -67,7 +66,7 @@ def login():
             return redirect(url_for('ecommerce.user'))
 
         # If not user in db
-        flash('Email already in use.', 'error')
+        flash('Wrong email or password.', 'error')
 
     return render_template('views/auth.html', form=form, form_view='login')
 

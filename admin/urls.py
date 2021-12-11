@@ -10,7 +10,7 @@ from os import path
 from uuid import uuid4
 
 
-admin = Blueprint('admin',__name__, template_folder='templates',
+admin = Blueprint('admin', __name__, template_folder='templates',
         static_folder='static')
 
 @admin.before_request
@@ -40,7 +40,11 @@ def index():
 @login_required
 def products():
     """ Load a list of products. """
-    prods = Product.query.all()
+    visible = request.args.get('visible')
+
+    if visible: prods = Product.query.filter_by(visible=visible)
+    else: prods = Product.query.all()
+    
     return render_template('views/products.html', action=None, products=prods)
 
 
@@ -81,22 +85,21 @@ def new_product():
             if secure_filenames != []:
                 product.images = secure_filenames
 
-            result = {'message': 'Product saved.', 'badge': 'info'}
+            status = {'message': 'Product saved.', 'badge': 'info'}
             
             db.session.add(product)
             db.session.commit()
 
-            create_notification (
-                'New product',
-                f'The product {product.name} has been created.'
-            )
-        
         except Exception as e:
-            result = {'message': f'{e}', 'badge': 'error'}
+            status = {'message': f'{e}', 'badge': 'error'}
             db.session.rollback()
         
         finally:
-            flash(result['message'], result['badge'])
+            flash(status['message'], status['badge'])
+            if status['badge'] == 'info':
+                title = 'New product'
+                text = f'The product {product.name} has been created.'
+                create_notification(title, text)
 
     return render_template('views/products.html', form=form, action='add')
 
@@ -107,8 +110,10 @@ def products_action(product_url, action):
     """ Edit, update and delete products. """
     product = Product.query.filter_by(url=product_url).first()
 
+    form = ProductForm()
+
+    # GET PRODUCT
     if product and request.method == 'GET' and action == 'update':
-        form = ProductForm()
         form.name.data = product.name
         form.information.data = product.information
         form.category.data = product.category
@@ -118,14 +123,69 @@ def products_action(product_url, action):
 
         return render_template('views/products.html', form=form,\
                                 action='update', product=product)
-    else:
-        return redirect(url_for('admin.products'))
 
+    # UPDATE PRODUCT
     if request.method == 'POST' and action == 'update':
-        pass
+        if form.validate_on_submit():
+            try:
+                status = {'message': 'Product updated!', 'badge': 'info'}
+                
+                secure_name = form.name.data
+                secure_url = safe_url(secure_name)['result']
 
+                name_used = Product.query.filter_by(name=secure_name).first()
+                url_used = Product.query.filter_by(url=secure_url).first()
+
+                if name_used and name_used.id != product.id:
+                    raise Exception(f'Name already in use.')
+
+                if url_used and url_used.id != product.id:
+                    raise Exception('URL in use, change the name.')
+
+                product.name = secure_name
+                product.information = form.information.data
+                product.category = form.category.data
+                product.stock = form.stock.data
+                product.price = form.price.data
+                product.visible = form.visible.data
+                product.url = secure_url
+
+                # db.session.merge(product)
+                db.session.commit()
+
+            except Exception as error:
+                status = {'message': f'{error}', 'badge': 'error'}
+                db.session.rollback()
+            
+            finally:
+                flash(status['message'], status['badge'])
+                if status['badge'] == 'info':
+                    title = 'Product updated'
+                    text = f'The product {product.name} has been updated.'
+                    create_notification(title, text)
+
+                return redirect(url_for('admin.products'))
+
+    # DELETE PRODUCT
     if request.method == 'POST' and action == 'delete':
-        pass
+        try:
+            status = {'message': 'Product deleted', 'badge': 'info'}
+            product.deleted = True
+            db.session.commit()
+
+        except Exception as error:
+            status = {'message': f'{error}', 'badge': 'error'}
+            db.session.rollback()
+            return redirect(url_for('admin'))
+        
+        finally:
+            flash(status['message'], status['badge'])
+            if status['badge'] == 'info':
+                title = 'Product deleted'
+                text = f'The product {product.name} has been deleted.'
+                create_notification(title, text)
+
+        return redirect(url_for('admin.products'))
 
 
 @admin.route('/categories/')

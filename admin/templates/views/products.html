@@ -73,6 +73,19 @@
 
     {% elif action == 'update' %}
         <form class="form" action="" method="post" accept-charset="utf-8" enctype=multipart/form-data>
+            <div class="product-images">
+                <a class="image" href="#">
+    
+                </a>
+                {% for image in product.images %}
+                    <div class="image">
+                        <img src="/static/images/uploads/{{image}}" alt="">
+                        <a href="#Link">x</a>
+                    </div>
+                {% endfor %}
+                <a href="#" target="_blank">Anchor Text</a>
+            </div>
+
             {{ form.name(placeholder="Product name") }}
             {{ form.information(placeholder="Product information") }}
             {{ form.category(placeholder="Category") }}
@@ -99,10 +112,11 @@
 <div class="tools">
     <h3 class="title">Tools</h3>
     <a class="button bg-g-blue" href="/admin/products/new-product/">New product</a>
-    <a class="button bg-g-cyan" href="#">Visible products</a>
-    <a class="button bg-g-cyan" href="#">Invisible products</a>
+    <a class="button bg-g-cyan" href="/admin/products/">All products</a>
+    <a class="button bg-g-cyan" href="/admin/products/?visible=1">Visible products</a>
+    <a class="button bg-g-cyan" href="/admin/products/?visible=0">Invisible products</a>
+    <a class="button bg-g-cyan" href="/admin/products/?deleted=1">Deleted products</a>
     <a class="button bg-g-orange" href="#">Trends</a>
     <a class="button bg-g-black" href="#">Products in carts</a>
-    <a class="button bg-g-black" href="#">Paper bin</a>
 </div>
 {% endblock %}

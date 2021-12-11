@@ -41,6 +41,7 @@ class Product(db.Model):
     url = db.Column(db.String(200), index=True, unique=True)
     price = db.Column(db.Integer, index=True, unique=False)
     visible = db.Column(db.Boolean, index=True, unique=False, default=False)
+    deleted = db.Column(db.Boolean, index=True, unique=True, default=False)
 
 
 class Payment(db.Model):
