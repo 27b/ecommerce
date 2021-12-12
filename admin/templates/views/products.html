@@ -98,7 +98,12 @@
             </label>
             {{ form.csrf_token }}
             {{ form.submit(value="Update") }}
-            <a class="delete" href="/admin/products/{{product.url}}/delete/">Delete</a>
+            {% if product.deleted == False %}
+                <a class="delete" href="/admin/products/{{product.url}}/delete/">Delete</a>
+            {% else %}
+                <a class="delete" href="/admin/products/{{product.url}}/activate/">Activate</a>
+                <a class="delete" href="/admin/products/{{product.url}}/perm/">Permanently delete</a>
+            {% endif %}
         </form>
         
         

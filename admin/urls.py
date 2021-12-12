@@ -1,6 +1,7 @@
 from flask import current_app, Blueprint, render_template, request, redirect,\
                   url_for, flash
 from flask_login import login_required, current_user
+from user import User
 from admin.forms import ProductForm
 from admin.models import Notification
 from ecommerce.models import Product
@@ -41,9 +42,16 @@ def index():
 def products():
     """ Load a list of products. """
     visible = request.args.get('visible')
+    deleted = request.args.get('deleted')
 
-    if visible: prods = Product.query.filter_by(visible=visible)
-    else: prods = Product.query.all()
+    if visible:
+        prods = Product.query.filter_by(visible=visible, deleted=False)
+    
+    elif deleted:
+        prods = Product.query.filter_by(deleted=deleted)
+    
+    else:
+        prods = Product.query.filter_by(deleted=False)
     
     return render_template('views/products.html', action=None, products=prods)
 
@@ -64,7 +72,8 @@ def new_product():
             product.price = int(form.price.data)
             product.visible = form.visible.data
             product.url = safe_url(product.name)['result']
-
+            product.deleted = False
+                
             name_in_use = Product.query.filter_by(name=product.name).first()
             url_in_use = Product.query.filter_by(url=product.url).first()
 
@@ -107,7 +116,7 @@ def new_product():
 @admin.route('/products/<product_url>/<action>/', methods=['GET', 'POST'])
 @login_required
 def products_action(product_url, action):
-    """ Edit, update and delete products. """
+    """ Edit, update and delete products. """    
     product = Product.query.filter_by(url=product_url).first()
 
     form = ProductForm()
@@ -150,7 +159,6 @@ def products_action(product_url, action):
                 product.visible = form.visible.data
                 product.url = secure_url
 
-                # db.session.merge(product)
                 db.session.commit()
 
             except Exception as error:
@@ -164,29 +172,45 @@ def products_action(product_url, action):
                     text = f'The product {product.name} has been updated.'
                     create_notification(title, text)
 
-                return redirect(url_for('admin.products'))
+        return redirect(url_for('admin.products'))
 
     # DELETE PRODUCT
-    if request.method == 'POST' and action == 'delete':
+    elif request.method == 'GET' and action in ['delete', 'activate', 'perm']:
         try:
-            status = {'message': 'Product deleted', 'badge': 'info'}
-            product.deleted = True
+            status = {'message': None, 'badge': 'info'}
+            
+            if action == 'delete':
+                status['message'] = 'Product deleted'
+                product.deleted = True
+
+            if action == 'activate':
+                status['message'] = 'Product activated'
+                product.deleted = False
+
+            if action == 'perm':
+                status['message'] = 'Product permanently deleted'
+                db.session.delete(product)
+ 
             db.session.commit()
 
         except Exception as error:
             status = {'message': f'{error}', 'badge': 'error'}
             db.session.rollback()
-            return redirect(url_for('admin'))
         
         finally:
             flash(status['message'], status['badge'])
             if status['badge'] == 'info':
-                title = 'Product deleted'
-                text = f'The product {product.name} has been deleted.'
+                title = status['message']
+                declared_action = title.split('Product ')[1]
+                username = current_user.email.split('@')[0]
+                text = f'''The product {product.name} has been 
+                        {declared_action} by {username}.'''
                 create_notification(title, text)
 
         return redirect(url_for('admin.products'))
 
+    else:
+        return 'Error'
 
 @admin.route('/categories/')
 @login_required
@@ -209,5 +233,6 @@ def files():
 @admin.route('/users/')
 @login_required
 def users():
-    pass
+    users = User.query.all()
+    return render_template('views/users.html', users=users)
 

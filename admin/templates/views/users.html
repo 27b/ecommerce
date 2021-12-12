@@ -1,0 +1,28 @@
+{% extends 'admin_base.html' %}
+
+{% block head %}
+<title>Users - Admin Panel</title>
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h3 class="title">Users</h3>
+    <div class="users-list">
+        {% for user in users %}
+            <div class="user">
+                <div class="information">
+                    {{ user.email }}
+                </div>
+                <div class="actions">
+                    <a class="link" href="#">Update</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="tools">
+   <h3 class="title">Tools</h3>
+   <a class="button bg-g-blue" href="/admin/products/?visible=1">Create user</a>
+   <a class="button bg-g-cyan" href="/admin/products/?visible=1">All users</a>
+</div>
+{% endblock %}
