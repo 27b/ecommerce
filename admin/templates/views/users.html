@@ -6,23 +6,44 @@
 
 {% block content %}
 <div class="main">
-    <h3 class="title">Users</h3>
-    <div class="users-list">
-        {% for user in users %}
-            <div class="user">
-                <div class="information">
-                    {{ user.email }}
+    <h3 class="title">
+        {% if action == None %}Users
+        {% elif action == 'view' %}User
+        {% else %} Error
+        {% endif %}
+    </h3>
+
+    {% if action == None %}
+        <div class="users-list">
+            {% for user in users %}
+                <div class="user">
+                    <div class="information">
+                        {{ user.email }}
+                    </div>
+                    <div class="actions">
+                        <a class="link" href="/admin/users/{{ user.email }}/send-email/">Send email</a>
+                        <a class="link" href="/admin/users/{{ user.email }}/view/">View</a>
+                    </div>
                 </div>
-                <div class="actions">
-                    <a class="link" href="#">Update</a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+
+    {% elif action == 'view' %}
+        <div class="form">
+            <input type="text" placeholder="Email" value="{{ user.email }}" disabled>
+            <input type="text" placeholder="Joined at" value="{{ user.joined_at }}" disabled>
+        </div>
+        <p><b>Role:</b> {% if user.role == 2 %} Admin {% else %} Member {% endif %}</p>
+        <form class="form" action="" method="post" accept-charset="utf-8" enctype=multipart/form-data>
+         
+        </form>
+        <br>
+        <p class="title">User order information</p>
+    {% endif %}
 </div>
 <div class="tools">
    <h3 class="title">Tools</h3>
-   <a class="button bg-g-blue" href="/admin/products/?visible=1">Create user</a>
+   <a class="button bg-g-blue" href="/admin/products/?visible=1">New user</a>
    <a class="button bg-g-cyan" href="/admin/products/?visible=1">All users</a>
 </div>
 {% endblock %}

@@ -45,7 +45,9 @@
                         </p>
                     </div>
                     <div class="actions">
-                        <a class="link" href="/products/{{product.url}}" target="_blank">View</a>
+                        {% if product.visible == True and product.deleted == False %}
+                            <a class="link" href="/products/{{product.url}}" target="_blank">View</a>
+                        {% endif %}
                         <a class="link" href="/admin/products/{{product.url}}/update/">Update</a>
                     </div>
                 </div>

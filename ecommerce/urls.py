@@ -10,7 +10,7 @@ ecommerce = Blueprint('ecommerce', __name__, template_folder='templates',
             static_folder='static')
 
 # Routes for anonymous users
-@ecommerce.route('/')
+@ecommerce.route('/', methods=['GET'])
 def home():
     products = Product.query.filter_by(visible=True)
     return render_template('views/home.html', products=products)
@@ -77,7 +77,7 @@ def lost_password():
     pass
 
 
-@ecommerce.route('/category/<category_name>/')
+@ecommerce.route('/category/<category_name>/', methods=['GET'])
 def category(category_name):
     """ Get all product of an specific category. """
     # Check if category exists.
@@ -91,7 +91,7 @@ def category(category_name):
     return render_template('index.html', products=products)
 
 
-@ecommerce.route('/product/<product_url>/')
+@ecommerce.route('/product/<product_url>/', methods=['GET'])
 def product(product_url):
     """ Get specific product (only if it's visible). """
     product = Product.query.filter_by(product_url=product_url).first()
@@ -110,7 +110,7 @@ def user():
     return render_template('views/user.html')
 
 
-@ecommerce.route('/logout/')
+@ecommerce.route('/logout/', methods=['GET'])
 @login_required
 def logout():
     logout_user()

@@ -30,7 +30,7 @@ def inject_notifications():
     return dict(notifications=notifications)
 
 
-@admin.route('/')
+@admin.route('/', methods=['GET'])
 @login_required
 def index():
     """ Dashboard. """
@@ -99,8 +99,8 @@ def new_product():
             db.session.add(product)
             db.session.commit()
 
-        except Exception as e:
-            status = {'message': f'{e}', 'badge': 'error'}
+        except Exception as error:
+            status = {'message': f'{error}', 'badge': 'error'}
             db.session.rollback()
         
         finally:
@@ -198,7 +198,6 @@ def products_action(product_url, action):
             db.session.rollback()
         
         finally:
-            flash(status['message'], status['badge'])
             if status['badge'] == 'info':
                 title = status['message']
                 declared_action = title.split('Product ')[1]
@@ -207,24 +206,27 @@ def products_action(product_url, action):
                         {declared_action} by {username}.'''
                 create_notification(title, text)
 
+            flash(status['message'], status['badge'])
+
         return redirect(url_for('admin.products'))
 
     else:
-        return 'Error'
+        return redirect(url_for('admin.products'))
 
-@admin.route('/categories/')
+
+@admin.route('/categories/', methods=['GET', 'POST'])
 @login_required
 def categories():
     pass
 
 
-@admin.route('/orders/')
+@admin.route('/orders/', methods=['GET', 'POST'])
 @login_required
 def orders():
     pass
 
 
-@admin.route('/files/')
+@admin.route('/files/', methods=['GET'])
 @login_required
 def files():
     pass
@@ -233,6 +235,19 @@ def files():
 @admin.route('/users/')
 @login_required
 def users():
+    """ Send a list of users. """
     users = User.query.all()
-    return render_template('views/users.html', users=users)
+    return render_template('views/users.html', users=users, action=None)
+
+
+@admin.route('/users/<user_email>/<action>/')
+@login_required
+def users_action(user_email, action):
+    """ Load user information. """
+    user_in_db = User.query.filter_by(email=user_email).first()
+    
+    if user_in_db and action == 'view':
+        return render_template('views/users.html', user=user_in_db, action='view')
+    
+    return redirect(url_for('admin.users'))
 
