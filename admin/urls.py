@@ -1,12 +1,16 @@
 from flask import current_app, Blueprint, render_template, request, redirect,\
                   url_for, flash
 from flask_login import login_required, current_user
-from user import User
+
 from admin.forms import ProductForm
+
+from user import User
 from admin.models import Notification
-from ecommerce.models import Product
+from ecommerce.models import Product, Order
 from tools.database import db
+
 from tools.tools import safe_url, create_notification
+
 from os import path
 from uuid import uuid4
 
@@ -90,12 +94,12 @@ def new_product():
                     directory = current_app.config['UPLOAD_FOLDER']
                     file.save(path.join(directory, file_name))
                     secure_filenames.append(file_name)
-        
+
             if secure_filenames != []:
                 product.images = secure_filenames
 
             status = {'message': 'Product saved.', 'badge': 'info'}
-            
+
             db.session.add(product)
             db.session.commit()
 
@@ -130,7 +134,7 @@ def products_action(product_url, action):
         form.price.data = product.price
         form.visible.data = product.visible
 
-        return render_template('views/products.html', form=form,\
+        return render_template('views/products.html', form=form,
                                 action='update', product=product)
 
     # UPDATE PRODUCT
@@ -170,6 +174,7 @@ def products_action(product_url, action):
                 if status['badge'] == 'info':
                     title = 'Product updated'
                     text = f'The product {product.name} has been updated.'
+                    
                     create_notification(title, text)
 
         return redirect(url_for('admin.products'))
@@ -183,14 +188,17 @@ def products_action(product_url, action):
                 status['message'] = 'Product deleted'
                 product.deleted = True
 
-            if action == 'activate':
+            elif action == 'activate':
                 status['message'] = 'Product activated'
                 product.deleted = False
 
-            if action == 'perm':
+            elif action == 'perm':
                 status['message'] = 'Product permanently deleted'
                 db.session.delete(product)
  
+            else:
+                raise Exception('Action not sopported.')
+
             db.session.commit()
 
         except Exception as error:
@@ -202,8 +210,10 @@ def products_action(product_url, action):
                 title = status['message']
                 declared_action = title.split('Product ')[1]
                 username = current_user.email.split('@')[0]
+                
                 text = f'''The product {product.name} has been 
-                        {declared_action} by {username}.'''
+                            {declared_action} by {username}.'''
+               
                 create_notification(title, text)
 
             flash(status['message'], status['badge'])
@@ -223,7 +233,15 @@ def categories():
 @admin.route('/orders/', methods=['GET', 'POST'])
 @login_required
 def orders():
-    pass
+    orders = Order.query.all()
+    return render_template('views/orders.html', orders=orders, action=None)
+
+
+@admin.route('/orders/<order_id>/<action>/')
+@login_required
+def orders_action(order_id, action):
+    order = Order.query.filter_by(id=order_id).first()
+    return render_template('views/orders.html', order=order, action='view')
 
 
 @admin.route('/files/', methods=['GET'])
@@ -247,7 +265,8 @@ def users_action(user_email, action):
     user_in_db = User.query.filter_by(email=user_email).first()
     
     if user_in_db and action == 'view':
-        return render_template('views/users.html', user=user_in_db, action='view')
+        return render_template('views/users.html', user=user_in_db,
+                               action='view')
     
     return redirect(url_for('admin.users'))
 

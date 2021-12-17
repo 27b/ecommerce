@@ -5,11 +5,11 @@ class IPayment:
         """ Not implemented method. """
         pass
 
-    def __send_request(self, payload) -> None:
+    def __send_request(self, payload: IPayload) -> None:
         """ Not implemented method. """
         pass
 
-    def send_payment(self, payload) -> dict:
+    def send_payment(self, payload: IPayload) -> dict:
         """ Not implemented method. """
         pass
 
@@ -23,6 +23,7 @@ class IPayload:
 
     def status(self) -> None:
         """ Not implemented method. """
+
 
 class RESTPayload(IPayload):
     """ Set data in object and use object in REST Payments. """
@@ -40,7 +41,7 @@ class RESTPayload(IPayload):
 class PaymentMobbex(IPayment):
     """ Payment using Mobbex service. """
 
-    def __init__(self, payload: RESTPayload | None = None):
+    def __init__(self, payload: RESTPayload):
         self.__payload  = payload
         self.__response = self.__payload.response
 
@@ -50,7 +51,7 @@ class PaymentMobbex(IPayment):
         result = {
             'status': 200,
             'message': 'Mock',
-            'sended': payload
+            'sended': self.__payload
         }
 
         self.__payload.response = result
