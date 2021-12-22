@@ -1,0 +1,1 @@
+]0;orion@fedora:~/GitHub/ecommerce[?2004h[orion@fedora ecommerce]$ python app.py[K[K[K[K[K[K[K[K[K[K[K[K[K

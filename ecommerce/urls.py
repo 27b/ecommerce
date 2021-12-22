@@ -12,7 +12,7 @@ ecommerce = Blueprint('ecommerce', __name__, template_folder='templates',
 # Routes for anonymous users
 @ecommerce.route('/', methods=['GET'])
 def home():
-    products = Product.query.filter_by(visible=True)
+    products = Product.query.filter_by(visible=True, deleted=False)
     return render_template('views/home.html', products=products)
 
 

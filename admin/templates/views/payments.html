@@ -1,0 +1,17 @@
+{% extends 'admin_base.html' %}
+
+{% block head %}
+<title>Payments - Admin Panel</title>
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <h3 class="title">Payments</h3>
+        {% for payment in payments %}
+            <p>{{ payment.id }}</p>
+        {% endfor %}
+    </div>
+    <div class="tools">
+        <h3 class="title">Tools</h3> 
+    </div>
+{% endblock %}

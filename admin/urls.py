@@ -6,7 +6,7 @@ from admin.forms import ProductForm
 
 from user import User
 from admin.models import Notification
-from ecommerce.models import Product, Order
+from ecommerce.models import Product, Payment, Order
 from tools.database import db
 
 from tools.tools import safe_url, create_notification
@@ -77,7 +77,7 @@ def new_product():
             product.visible = form.visible.data
             product.url = safe_url(product.name)['result']
             product.deleted = False
-                
+        
             name_in_use = Product.query.filter_by(name=product.name).first()
             url_in_use = Product.query.filter_by(url=product.url).first()
 
@@ -142,7 +142,7 @@ def products_action(product_url, action):
         if form.validate_on_submit():
             try:
                 status = {'message': 'Product updated!', 'badge': 'info'}
-                
+            
                 secure_name = form.name.data
                 secure_url = safe_url(secure_name)['result']
 
@@ -224,10 +224,17 @@ def products_action(product_url, action):
         return redirect(url_for('admin.products'))
 
 
-@admin.route('/categories/', methods=['GET', 'POST'])
+#@admin.route('/categories/', methods=['GET', 'POST'])
+#@login_required
+#def categories():
+#    return render_template('views/categories.html')
+
+
+@admin.route('/payments/', methods=['GET'])
 @login_required
-def categories():
-    pass
+def payments():
+    payments = Payment.query.all()
+    return render_template('views/payments.html', payments=payments)
 
 
 @admin.route('/orders/', methods=['GET', 'POST'])
@@ -269,4 +276,9 @@ def users_action(user_email, action):
                                action='view')
     
     return redirect(url_for('admin.users'))
+
+
+from admin.views import CategoriesView
+
+admin.add_url_rule('/categories/', view_func=CategoriesView.as_view('categories', template_name='views/categories.html'))
 

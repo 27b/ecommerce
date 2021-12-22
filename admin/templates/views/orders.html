@@ -1,0 +1,19 @@
+{% extends 'admin_base.html' %}
+
+{% block head %}
+<title>Orders - Admin Panel</title>
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <h3 class="title">Orders</h3>
+        {% for order in orders %}
+        <p>{{ order.id }}</p>
+        {% endfor %}
+    </div>
+    <div class="tools">
+        <h3 class="title">Tools</h3>
+        <a class="button bg-g-blue" href="/admin/orders/">New order</a>
+        <a class="button bg-g-black" href="/admin/orders/payments/">Payments</a>
+    </div>
+{% endblock %}

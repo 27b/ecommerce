@@ -60,8 +60,7 @@ class Order(db.Model):
     """ Status of payment for admins. """
     __tablename__ = 'orders'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, nullable=False)
     payment_id = db.Column(db.Integer, nullable=False)
     status = db.Column(db.String(64), nullable=False)
     note = db.Column(db.String(256), nullable=True)
-
+    
