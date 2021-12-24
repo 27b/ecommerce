@@ -7,6 +7,9 @@
 {% block content %}
     <div class="main">
         <h3 class="title">Categories</h3>
+        {% for category in categories %}
+            <p>{{category.name}}</p>
+        {% endfor %}
     </div>
     <div class="tools">
         <h3 class="title">Tools</h3>

@@ -278,7 +278,14 @@ def users_action(user_email, action):
     return redirect(url_for('admin.users'))
 
 
-from admin.views import CategoriesView
+from .views import Categories, CategoriesEditor
 
-admin.add_url_rule('/categories/', view_func=CategoriesView.as_view('categories', template_name='views/categories.html'))
+
+admin.add_url_rule('/categories/', view_func=Categories.as_view(
+    'categories', template_name='views/categories.html'
+))
+
+admin.add_url_rule('/categories/<category_id>/', view_func=CategoriesEditor.as_view(
+    'categories_editor', template_name='views/categories.html'
+))
 
