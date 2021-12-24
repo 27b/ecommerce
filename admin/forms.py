@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 
 
 # PRODUCT
-class CategoryForm():
+class CategoryForm(FlaskForm):
     """ Used in /admin-panel for add and edit categories. """
     name = StringField('Category Name', validators = [
         DataRequired(), Length(min=4, max=20)

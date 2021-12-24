@@ -30,7 +30,7 @@ def inject_notifications():
                                 .order_by(Notification.datetime.desc()) \
                                 .limit(20) \
                                 .all() \
-    
+
     return dict(notifications=notifications)
 
 
@@ -50,13 +50,13 @@ def products():
 
     if visible:
         prods = Product.query.filter_by(visible=visible, deleted=False)
-    
+
     elif deleted:
         prods = Product.query.filter_by(deleted=deleted)
-    
+
     else:
         prods = Product.query.filter_by(deleted=False)
-    
+
     return render_template('views/products.html', action=None, products=prods)
 
 
@@ -77,12 +77,15 @@ def new_product():
             product.visible = form.visible.data
             product.url = safe_url(product.name)['result']
             product.deleted = False
-        
+
             name_in_use = Product.query.filter_by(name=product.name).first()
             url_in_use = Product.query.filter_by(url=product.url).first()
 
-            if name_in_use: raise Exception('Name already in use.')
-            if url_in_use: raise Exception('URL in use, change the name.')
+            if name_in_use:
+                raise Exception('Name already in use.')
+
+            if url_in_use:
+                raise Exception('URL in use, change the name.')
 
             secure_filenames = []
 
@@ -106,7 +109,7 @@ def new_product():
         except Exception as error:
             status = {'message': f'{error}', 'badge': 'error'}
             db.session.rollback()
-        
+
         finally:
             flash(status['message'], status['badge'])
             if status['badge'] == 'info':
@@ -120,7 +123,7 @@ def new_product():
 @admin.route('/products/<product_url>/<action>/', methods=['GET', 'POST'])
 @login_required
 def products_action(product_url, action):
-    """ Edit, update and delete products. """    
+    """ Edit, update and delete products. """
     product = Product.query.filter_by(url=product_url).first()
 
     form = ProductForm()
@@ -142,7 +145,7 @@ def products_action(product_url, action):
         if form.validate_on_submit():
             try:
                 status = {'message': 'Product updated!', 'badge': 'info'}
-            
+
                 secure_name = form.name.data
                 secure_url = safe_url(secure_name)['result']
 
@@ -168,13 +171,13 @@ def products_action(product_url, action):
             except Exception as error:
                 status = {'message': f'{error}', 'badge': 'error'}
                 db.session.rollback()
-            
+
             finally:
                 flash(status['message'], status['badge'])
                 if status['badge'] == 'info':
                     title = 'Product updated'
                     text = f'The product {product.name} has been updated.'
-                    
+
                     create_notification(title, text)
 
         return redirect(url_for('admin.products'))
@@ -183,7 +186,7 @@ def products_action(product_url, action):
     elif request.method == 'GET' and action in ['delete', 'activate', 'perm']:
         try:
             status = {'message': None, 'badge': 'info'}
-            
+
             if action == 'delete':
                 status['message'] = 'Product deleted'
                 product.deleted = True
@@ -195,7 +198,7 @@ def products_action(product_url, action):
             elif action == 'perm':
                 status['message'] = 'Product permanently deleted'
                 db.session.delete(product)
- 
+
             else:
                 raise Exception('Action not sopported.')
 
@@ -204,16 +207,16 @@ def products_action(product_url, action):
         except Exception as error:
             status = {'message': f'{error}', 'badge': 'error'}
             db.session.rollback()
-        
+
         finally:
             if status['badge'] == 'info':
                 title = status['message']
                 declared_action = title.split('Product ')[1]
                 username = current_user.email.split('@')[0]
-                
+
                 text = f'''The product {product.name} has been 
                             {declared_action} by {username}.'''
-               
+
                 create_notification(title, text)
 
             flash(status['message'], status['badge'])
@@ -270,11 +273,11 @@ def users():
 def users_action(user_email, action):
     """ Load user information. """
     user_in_db = User.query.filter_by(email=user_email).first()
-    
+
     if user_in_db and action == 'view':
         return render_template('views/users.html', user=user_in_db,
                                action='view')
-    
+
     return redirect(url_for('admin.users'))
 
 

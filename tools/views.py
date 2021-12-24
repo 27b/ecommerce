@@ -1,4 +1,4 @@
-from flask import request, abort, render_template
+from flask import request, abort, render_template, flash
 from flask.views import View
 
 
@@ -7,6 +7,7 @@ class ViewMixin(View):
     This class extends other class with a state and functions based on Flask
     View, you can re-write .get() and .post() methods.
     """
+    methods = ['GET', 'POST']
 
     def __init__(self, template_name: str):
         self.template_name = template_name
@@ -23,7 +24,7 @@ class ViewMixin(View):
             else: abort(500)
 
         except Exception as error:
-            print(error)
+            flash(error, 'error')
             
         finally:
             return self.render_template(self.context)

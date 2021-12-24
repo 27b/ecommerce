@@ -6,13 +6,39 @@
 
 {% block content %}
     <div class="main">
-        <h3 class="title">Categories</h3>
-        {% for category in categories %}
-            <p>{{category.name}}</p>
-        {% endfor %}
+        <h3 class="title">
+            {% if view == None %} Category
+            {% elif view == "add" %} Category > New product
+            {% else %} Category > Error
+            {% endif%}
+        </h3>
+
+        {% if view == None %}
+            <div class="users-list">
+                {% for category in categories %}
+                    <div class="user">
+                        <div class="information">
+                            {{ category.name }}
+                        </div>
+                        <div class="actions">
+                            <a class="link" href="/admin/users/{{ category.id }}/">Update</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if view == "add" %}
+            <form class="form" action="/admin/categories/" method="post" accept-charset="utf-8">
+                {{ form.name(placeholder="Category name") }}
+                <p>{{ form.visible }} Visible</p>
+                {{ form.csrf_token }}
+                {{ form.submit(value="Add product") }}
+            </form>
+        {% endif %}
     </div>
     <div class="tools">
         <h3 class="title">Tools</h3>
-        <a class="button bg-g-blue" href="/admin/orders/">New Category</a>
+        <a class="button bg-g-blue" href="/admin/categories/?view=add">New Category</a>
     </div>
 {% endblock %}
