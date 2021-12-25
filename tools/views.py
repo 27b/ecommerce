@@ -1,4 +1,4 @@
-from flask import request, abort, render_template, flash
+from flask import request, redirect, url_for, abort, render_template, flash
 from flask.views import View
 
 
@@ -12,6 +12,9 @@ class ViewMixin(View):
     def __init__(self, template_name: str):
         self.template_name = template_name
         self.context = {}
+    
+    def reload_page(self) -> None:
+        self.context['reload'] = True
 
     def render_template(self, context):
         """ Returns a temaplate with template_name and context"""
@@ -27,10 +30,12 @@ class ViewMixin(View):
                 abort(500)
 
         except Exception as error:
-            flash(f'{error}', 'error')
+            flash(error, 'error')
             
         finally:
-            return self.render_template(self.context)
+            pass
+
+        return self.render_template(self.context)
 
     def get(self, **kwargs):
         """ Method not implemented. """

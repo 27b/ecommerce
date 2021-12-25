@@ -5,11 +5,6 @@ from ecommerce.models import Category
 from .forms import CategoryForm
 
 
-# TESTING IF CLASS-BASED VIEWS ARE FEASIBLE
-# /categories/               -> get / insert
-# /categories/<id>/          -> get / update
-# /categories/<id>/delete    -> delete
-
 class Categories(ViewMixin):
     """ Class based view of categories. """
 
@@ -35,7 +30,6 @@ class Categories(ViewMixin):
             if not Category.query.filter_by(name=name).first():
                 db.session.add(new_category)
                 db.session.commit()
-                return redirect(url_for('admin.categories'))
             else:
                 raise Exception('Name already in use.')
         else:
@@ -52,10 +46,24 @@ class CategoriesEditor(ViewMixin):
         if category:
             form = CategoryForm(name=category.name, visible=category.visible)
             self.context['view'] = 'category'
+            self.context['category_id'] = category_id
             self.context['form'] = form
         else:
-            flash('Wrong category id.', 'error')
+            raise Exception('Wrong category id.')
 
-    def post(self):
+    def post(self, category_id):
         """ Update and delete product. """
-        pass
+        form = CategoryForm()
+        category = Category.query.filter_by(id=category_id).first()
+        name_in_db = Category.query.filter_by(name=form.name.data).first()
+
+        if category and form.validate_on_submit():
+            if not name_in_db or category.name == form.name.data:
+                category.name = form.name.data
+                category.visible = form.visible.data
+                db.session.commit()
+                flash('Product updated!', 'info')
+            else:
+                raise Exception('Name already in use.')
+        
+        self.context['categories'] = Category.query.all()

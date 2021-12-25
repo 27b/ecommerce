@@ -7,10 +7,9 @@
 {% block content %}
     <div class="main">
         <h3 class="title">
-            {% if view == None %} Category
-            {% elif view == "add" %} Category > New category
-            {% elif view == "category" %} Category > {{form.name.data}}
-            {% else %} Category > Error
+            {% if view == "add" %} Category > New category
+            {% elif view == "category" %} Update category: {{form.name.data}}
+            {% else %} Category
             {% endif %}
         </h3>
 
@@ -28,7 +27,25 @@
             {% endif %}
         {% endwith %}
 
-        {% if view == None %}
+
+        {% if view == "add" %}
+            <form class="form" action="" method="post" accept-charset="utf-8">
+                {{ form.name(placeholder="Category name") }}
+                <p>{{ form.visible }} Visible</p>
+                {{ form.csrf_token }}
+                {{ form.submit(value="Add category") }}
+            </form>
+
+        {% elif view == "category" %}
+            <form class="form" action="" method="post" accept-charset="utf-8">
+                <input type="text" placeholder="Category Id" value="{{ category_id }}" disabled>
+                {{ form.name(placeholder="Category name") }}
+                <p>{{ form.visible }} Visible</p>
+                {{ form.csrf_token }}
+                {{ form.submit(value="Update category") }}
+            </form>
+
+        {% else %}
             <div class="users-list">
                 {% for category in categories %}
                     <div class="user">
@@ -44,24 +61,6 @@
                     </div>
                 {% endfor %}
             </div>
-        {% endif %}
-
-        {% if view == "add" %}
-            <form class="form" action="/admin/categories/" method="post" accept-charset="utf-8">
-                {{ form.name(placeholder="Category name") }}
-                <p>{{ form.visible }} Visible</p>
-                {{ form.csrf_token }}
-                {{ form.submit(value="Add category") }}
-            </form>
-        {% endif %}
-
-        {% if view == "category" %}
-            <form class="form" action="/admin/categories/" method="post" accept-charset="utf-8">
-                {{ form.name(placeholder="Category name") }}
-                <p>{{ form.visible }} Visible</p>
-                {{ form.csrf_token }}
-                {{ form.submit(value="Update category") }}
-            </form>
         {% endif %}
     </div>
     <div class="tools">
