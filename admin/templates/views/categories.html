@@ -8,10 +8,10 @@
     <div class="main">
         <h3 class="title">
             {% if view == None %} Category
-            {% elif view == "add" %} Category > New product
+            {% elif view == "add" %} Category > New category
             {% elif view == "category" %} Category > {{form.name.data}}
             {% else %} Category > Error
-            {% endif%}
+            {% endif %}
         </h3>
 
         {% with messages = get_flashed_messages(with_categories=True) %}
@@ -36,6 +36,9 @@
                             {{ category.name }}
                         </div>
                         <div class="actions">
+                            {% if category.visible == True %}
+                                <a class="link" href="/{{ category.id }}/">View</a>
+                            {% endif %}
                             <a class="link" href="/admin/categories/{{ category.id }}/">Update</a>
                         </div>
                     </div>

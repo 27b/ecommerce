@@ -27,7 +27,7 @@ class ViewMixin(View):
                 abort(500)
 
         except Exception as error:
-            flash(error, 'error')
+            flash(f'{error}', 'error')
             
         finally:
             return self.render_template(self.context)
@@ -50,11 +50,16 @@ class ViewExtendedMixin(ViewMixin, View):
 
     def dispatch_request(self, **kwargs):
         try:
-            if request.method == 'GET': self.get(**kwargs)
-            elif request.method == 'POST': self.post(**kwargs)
-            elif request.method == 'PUT': self.put(**kwargs)
-            elif request.method == 'DELETE': self.delete(**kwargs)
-            else: abort(500)
+            if request.method == 'GET':
+                self.get(**kwargs)
+            elif request.method == 'POST':
+                self.post(**kwargs)
+            elif request.method == 'PUT':
+                self.put(**kwargs)
+            elif request.method == 'DELETE':
+                self.delete(**kwargs)
+            else:
+                abort(500)
 
         except Exception as error:
             print(error)

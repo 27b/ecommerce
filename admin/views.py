@@ -1,6 +1,6 @@
 from tools.database import db
 from tools.views import ViewMixin
-from flask import render_template, request, flash
+from flask import render_template, redirect, url_for, request, flash
 from ecommerce.models import Category
 from .forms import CategoryForm
 
@@ -35,6 +35,7 @@ class Categories(ViewMixin):
             if not Category.query.filter_by(name=name).first():
                 db.session.add(new_category)
                 db.session.commit()
+                return redirect(url_for('admin.categories'))
             else:
                 raise Exception('Name already in use.')
         else:
