@@ -9,9 +9,24 @@
         <h3 class="title">
             {% if view == None %} Category
             {% elif view == "add" %} Category > New product
+            {% elif view == "category" %} Category > {{form.name.data}}
             {% else %} Category > Error
             {% endif%}
         </h3>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'info' %}
+                        <div class="banner bg-green">{{ message }}</div>
+                    {% elif category == 'error' %}
+                        <div class="banner bg-red"><b>Error:</b> {{ message }}</div>
+                    {% else %}
+                        <div class="banner bg-blue">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
 
         {% if view == None %}
             <div class="users-list">
@@ -21,7 +36,7 @@
                             {{ category.name }}
                         </div>
                         <div class="actions">
-                            <a class="link" href="/admin/users/{{ category.id }}/">Update</a>
+                            <a class="link" href="/admin/categories/{{ category.id }}/">Update</a>
                         </div>
                     </div>
                 {% endfor %}
@@ -33,7 +48,16 @@
                 {{ form.name(placeholder="Category name") }}
                 <p>{{ form.visible }} Visible</p>
                 {{ form.csrf_token }}
-                {{ form.submit(value="Add product") }}
+                {{ form.submit(value="Add category") }}
+            </form>
+        {% endif %}
+
+        {% if view == "category" %}
+            <form class="form" action="/admin/categories/" method="post" accept-charset="utf-8">
+                {{ form.name(placeholder="Category name") }}
+                <p>{{ form.visible }} Visible</p>
+                {{ form.csrf_token }}
+                {{ form.submit(value="Update category") }}
             </form>
         {% endif %}
     </div>

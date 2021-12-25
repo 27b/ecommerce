@@ -17,11 +17,14 @@ class ViewMixin(View):
         """ Returns a temaplate with template_name and context"""
         return render_template(self.template_name, **context)
 
-    def dispatch_request(self):
+    def dispatch_request(self, **kwargs):
         try:
-            if request.method == 'GET': self.get() 
-            elif request.method == 'POST': self.post()
-            else: abort(500)
+            if request.method == 'GET':
+                self.get(**kwargs)
+            elif request.method == 'POST':
+                self.post(**kwargs)
+            else:
+                abort(500)
 
         except Exception as error:
             flash(error, 'error')
@@ -29,11 +32,11 @@ class ViewMixin(View):
         finally:
             return self.render_template(self.context)
 
-    def get(self):
+    def get(self, **kwargs):
         """ Method not implemented. """
         pass
 
-    def post(self):
+    def post(self, **kwargs):
         """ Method not implemented. """
         pass
 
@@ -43,13 +46,14 @@ class ViewExtendedMixin(ViewMixin, View):
     This class extends other class with a state and functions based on Flask
     View, you can re-write .get(), post(), .put() and .delete() methods.
     """
+    methods = ['GET', 'POST', 'PUT', 'DELETE']
 
-    def dispatch_request(self):
+    def dispatch_request(self, **kwargs):
         try:
-            if request.method == 'GET': self.get()
-            elif request.method == 'POST': self.post()
-            elif request.method == 'PUT': self.put()
-            elif request.method == 'DELETE': self.delete()
+            if request.method == 'GET': self.get(**kwargs)
+            elif request.method == 'POST': self.post(**kwargs)
+            elif request.method == 'PUT': self.put(**kwargs)
+            elif request.method == 'DELETE': self.delete(**kwargs)
             else: abort(500)
 
         except Exception as error:
@@ -58,11 +62,11 @@ class ViewExtendedMixin(ViewMixin, View):
         finally:
             return self.end_method()
 
-    def put(self):
+    def put(self, **kwargs):
         """ Method not implemented. """
         pass
 
-    def delete(self):
+    def delete(self, **kwargs):
         """ Method not implemented. """
         pass
 
