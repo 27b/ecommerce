@@ -227,12 +227,6 @@ def products_action(product_url, action):
         return redirect(url_for('admin.products'))
 
 
-#@admin.route('/categories/', methods=['GET', 'POST'])
-#@login_required
-#def categories():
-#    return render_template('views/categories.html')
-
-
 @admin.route('/payments/', methods=['GET'])
 @login_required
 def payments():

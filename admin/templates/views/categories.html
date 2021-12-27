@@ -38,12 +38,14 @@
 
         {% elif view == "category" %}
             <form class="form" action="" method="post" accept-charset="utf-8">
-                <input type="text" placeholder="Category Id" value="{{ category_id }}" disabled>
+                <input type="text" placeholder="Category Id" value="{{ category_id }}" title="Product id" disabled>
                 {{ form.name(placeholder="Category name") }}
                 <p>{{ form.visible }} Visible</p>
                 {{ form.csrf_token }}
                 {{ form.submit(value="Update category") }}
             </form>
+            <br>
+            <p class="title">Linked products</p>
 
         {% else %}
             <div class="users-list">
