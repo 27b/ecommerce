@@ -234,20 +234,6 @@ def payments():
     return render_template('views/payments.html', payments=payments)
 
 
-@admin.route('/orders/', methods=['GET', 'POST'])
-@login_required
-def orders():
-    orders = Order.query.all()
-    return render_template('views/orders.html', orders=orders, action=None)
-
-
-@admin.route('/orders/<order_id>/<action>/')
-@login_required
-def orders_action(order_id, action):
-    order = Order.query.filter_by(id=order_id).first()
-    return render_template('views/orders.html', order=order, action='view')
-
-
 @admin.route('/files/', methods=['GET'])
 @login_required
 def files():
@@ -275,14 +261,39 @@ def users_action(user_email, action):
     return redirect(url_for('admin.users'))
 
 
-from .views import Categories, CategoriesEditor
+from .views import Categories, CategoriesEditor, CategoriesEditorActions
+from .views import Orders, OrdersEditor
 
 
-admin.add_url_rule('/categories/', view_func=Categories.as_view(
-    'categories', template_name='views/categories.html'
-))
+admin.add_url_rule('/categories/',
+    view_func=Categories.as_view(
+        'categories', template_name='views/categories.html'
+    )
+)
 
-admin.add_url_rule('/categories/<category_id>/', view_func=CategoriesEditor.as_view(
-    'categories_editor', template_name='views/categories.html'
-))
+admin.add_url_rule('/categories/<category_id>/',
+    view_func=CategoriesEditor.as_view(
+        'categories_editor', template_name='views/categories.html'
+    )
+)
 
+admin.add_url_rule(
+    '/categories/<category_id>/<action>',
+    view_func=CategoriesEditorActions.as_view(
+        'categories_editor_actions', url_to_redirect='admin.categories'
+    )
+)
+
+admin.add_url_rule(
+    '/orders/',
+    view_func=Orders.as_view(
+        'orders', template_name='views/orders.html'
+    )
+)
+
+admin.add_url_rule(
+    '/orders/<order_id>/',
+    view_func=OrdersEditor.as_view(
+        'orders_editor', template_name='views/orders.html'
+    )
+)

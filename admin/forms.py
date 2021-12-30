@@ -35,4 +35,3 @@ class ProductForm(FlaskForm):
     visible = BooleanField()
     images = MultipleFileField('File(s) Upload', render_kw={'multiple': True})
     submit = SubmitField()
-

@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, request, flash
 from tools.database import db
 from tools.views import ViewMixin
-from ecommerce.models import Category, Product
+from ecommerce.models import Category, Product, Order
 from .forms import CategoryForm
 
 
@@ -11,26 +11,31 @@ class Categories(ViewMixin):
     def get(self):
         """ Views: list of categories and new product. """
         view = request.args.get('view')
+        visible = request.args.get('visible')
+
         self.context['view'] = view
 
         if view == 'add':
-            self.context['form'] = CategoryForm()
+            self.context['category_form'] = CategoryForm()
+        elif visible == "0" or visible == "1":
+            self.context['categories'] = Category.query.filter_by(visible=visible)
         else:
-            self.context['categories'] = Category.query.all()        
+            self.context['categories'] = Category.query.all()
 
     def post(self):
         """ Create new product. """
-        form = CategoryForm()
+        category_form = CategoryForm()
 
-        if form.validate_on_submit():
-            name = form.name.data
-            visible = form.visible.data
+        if category_form.validate_on_submit():
+            name = category_form.name.data
+            visible = category_form.visible.data
+            
             new_category = Category(name=name, visible=visible)
 
             if not Category.query.filter_by(name=name).first():
                 db.session.add(new_category)
                 db.session.commit()
-                flash('Category Updated!', 'info')
+                flash('Category created!', 'info')
             else:
                 raise Exception('Name already in use.')
         else:
@@ -40,33 +45,70 @@ class Categories(ViewMixin):
 class CategoriesEditor(ViewMixin):
     """ Class based view for individual and use actions. """
 
-    def get(self, category_id: int):
+    def get(self, category_id):
         """ Get product and set data on a form. """
         category = Category.query.filter_by(id=category_id).first()
 
         if category:
-            linked_products = Product.query.filter_by(category=category_id)
-            form = CategoryForm(name=category.name, visible=category.visible)
+            linked_products = Product.query.filter_by(category=category.name)
+            category_form = CategoryForm(name=category.name, visible=category.visible)
             self.context['view'] = 'category'
             self.context['category_id'] = category_id
-            self.context['form'] = form
+            self.context['category_form'] = category_form
             self.context['products'] = linked_products
         else:
             raise Exception('Wrong category id.')
 
     def post(self, category_id):
-        """ Update and delete product. """
-        form = CategoryForm()
+        """ Update and delete category. """
         category = Category.query.filter_by(id=category_id).first()
-        name_in_db = Category.query.filter_by(name=form.name.data).first()
-        
-        if category and form.validate_on_submit():
-            if not name_in_db or category.name == form.name.data:
-                category.name = form.name.data
-                category.visible = form.visible.data
+        category_form = CategoryForm()
+
+        if category and category_form.validate_on_submit():
+            name_in_db = Category.query.filter_by(name=category_form.name.data).first()
+            
+            if not name_in_db or category.name == category_form.name.data:
+                category.name = category_form.name.data
+                category.visible = category_form.visible.data
                 db.session.commit()
-                flash('Product updated!', 'info')
+                flash('Category updated!', 'info')
             else:
-                raise Exception('Name already in use.')
+                raise Exception('Name already in use.') 
         else:
-            raise Exception('Wrong category id.')        
+            raise Exception('Wrong category id.')
+
+
+class CategoriesEditorActions(ViewMixin):
+    methods = ['POST']
+
+    def post(self, category_id, action):
+        category = Category.query.filter_by(id=category_id).first()
+        if category:
+            if action == 'delete':
+                db.session.delete(category)
+                db.session.commit()
+                flash('Category deleted!', 'info')
+            else:
+                raise Exception('The action does not exist.')
+        else:
+            raise Exception('Icorrect name, try again.')
+
+
+class Orders(ViewMixin):
+    """ Class based view of orders. """
+    
+    def get(self):
+        print('Hello World')
+
+    def post(self):
+        print('Hello World')
+        
+
+class OrdersEditor(ViewMixin):
+    """ Class based view for individual and use actions. """
+    
+    def get(self, order_id):
+        print('Hello World')
+
+    def post(self, order_id):
+        print('Hello World')

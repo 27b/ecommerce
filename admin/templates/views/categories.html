@@ -8,7 +8,7 @@
     <div class="main">
         <h3 class="title">
             {% if view == "add" %} Category > New category
-            {% elif view == "category" %} Update category: {{form.name.data}}
+            {% elif view == "category" %} Update category: {{category_form.name.data}}
             {% else %} Category
             {% endif %}
         </h3>
@@ -30,22 +30,53 @@
 
         {% if view == "add" %}
             <form class="form" action="" method="post" accept-charset="utf-8">
-                {{ form.name(placeholder="Category name") }}
-                <p>{{ form.visible }} Visible</p>
-                {{ form.csrf_token }}
-                {{ form.submit(value="Add category") }}
+                {{ category_form.name(placeholder="Category name") }}
+                <p>{{ category_form.visible }} Visible</p>
+                {{ category_form.csrf_token }}
+                {{ category_form.submit(value="Add category") }}
             </form>
 
         {% elif view == "category" %}
             <form class="form" action="" method="post" accept-charset="utf-8">
                 <input type="text" placeholder="Category Id" value="{{ category_id }}" title="Product id" disabled>
-                {{ form.name(placeholder="Category name") }}
-                <p>{{ form.visible }} Visible</p>
-                {{ form.csrf_token }}
-                {{ form.submit(value="Update category") }}
+                {{ category_form.name(placeholder="Category name") }}
+                <p>{{ category_form.visible }} Visible</p>
+                {{ category_form.csrf_token }}
+                {{ category_form.submit(value="Update category") }}
+            </form>
+
+            <form class="form" action="./delete" method="post">
+                {{ category_form.csrf_token }}
+                <input class="bg-red" type="submit" value="Delete">
             </form>
             <br>
             <p class="title">Linked products</p>
+            <div class="product-list">
+                {% for product in products %}
+                    <div class="product">
+                        <div class="information">
+                            <img class="image" src="/static/images/uploads/{{product.images[0]}}" alt="{{product.name}}"/>
+                            <p class="title">
+                                {% if product.deleted == 1 %}
+                                    <span class="bubble bg-orange"></span>
+                                {% elif product.visible == 1 %}
+                                    <span class="bubble bg-blue"></span>
+                                {% else %}
+                                    <span class="bubble bg-grey"></span>
+                                {% endif %}
+                                <span>({{ product.stock }})</span>
+                                {{ product.name }}
+                            </p>
+                        </div>
+                        <div class="actions">
+                            {% if product.visible == True and product.deleted == False %}
+                                <a class="link" href="/products/{{product.url}}" target="_blank">View</a>
+                            {% endif %}
+                            <a class="link" href="/admin/products/{{product.url}}/update/">Update</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
 
         {% else %}
             <div class="users-list">
@@ -68,5 +99,8 @@
     <div class="tools">
         <h3 class="title">Tools</h3>
         <a class="button bg-g-blue" href="/admin/categories/?view=add">New Category</a>
+        <a class="button bg-g-cyan" href="/admin/categories/">All Categories</a>
+        <a class="button bg-g-cyan" href="/admin/categories/?visible=1">Visible Categories</a>
+        <a class="button bg-g-cyan" href="/admin/categories/?visible=0">Invisible Categories</a>
     </div>
 {% endblock %}
