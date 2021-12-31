@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request, flash
+from flask import request, flash
 from common.database import db
 from common.views import ViewMixin
 from ecommerce.models import Category, Product, Order
@@ -60,7 +60,7 @@ class CategoriesEditor(ViewMixin):
             raise Exception('Wrong category id.')
 
     def post(self, category_id):
-        """ Update and delete category. """
+        """ Update category. """
         category = Category.query.filter_by(id=category_id).first()
         category_form = CategoryForm()
 
@@ -79,6 +79,7 @@ class CategoriesEditor(ViewMixin):
 
 
 class CategoriesEditorActions(ViewMixin):
+    """ Delete category. """
     methods = ['POST']
 
     def post(self, category_id, action):
@@ -91,7 +92,7 @@ class CategoriesEditorActions(ViewMixin):
             else:
                 raise Exception('The action does not exist.')
         else:
-            raise Exception('Icorrect name, try again.')
+            raise Exception('Incorrect name, try again.')
 
 
 class Orders(ViewMixin):

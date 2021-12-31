@@ -9,7 +9,7 @@ class ViewMixin(View):
     """
     methods = ['GET', 'POST']
 
-    def __init__(self, template_name:str = None, url_to_redirect:str = None):
+    def __init__(self, template_name: str = None, url_to_redirect: str = None):
         self.template_name = template_name
         self.url_to_redirect = url_to_redirect
         self.context = {'redirect': False, 'reload': False}
@@ -36,16 +36,19 @@ class ViewMixin(View):
         of the class, if the method is post refresh the page.
         """
         try:
-            if request.method == 'GET': self.get(**kwargs)
-            elif request.method == 'POST': self.post(**kwargs)
-            else: abort(500)
+            if request.method == 'GET':
+                self.get(**kwargs)
+            elif request.method == 'POST':
+                self.post(**kwargs)
+            else:
+                abort(500)
 
         except Exception as error:
             flash(error, 'error')
 
         # If use .move_to()
         if self.context['redirect']:
-                return redirect(url_for(self.context['redirect'], **kwargs))
+            return redirect(url_for(self.context['redirect'], **kwargs))
         
         elif request.method == 'GET':
             return self.render_template(self.context)
@@ -87,10 +90,14 @@ class ViewExtendedMixin(ViewMixin, View):
 
     def dispatch_request(self, **kwargs):
         try:
-            if request.method == 'GET': self.get(**kwargs)
-            elif request.method == 'POST': self.post(**kwargs)
-            elif request.method == 'PUT': self.put(**kwargs)
-            elif request.method == 'DELETE': self.delete(**kwargs)
+            if request.method == 'GET':
+                self.get(**kwargs)
+            elif request.method == 'POST':
+                self.post(**kwargs)
+            elif request.method == 'PUT':
+                self.put(**kwargs)
+            elif request.method == 'DELETE':
+                self.delete(**kwargs)
             else: abort(500)
 
         except Exception as error:

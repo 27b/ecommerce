@@ -7,7 +7,8 @@ from settings import db
 
 
 ecommerce = Blueprint('ecommerce', __name__, template_folder='templates',
-            static_folder='static')
+                      static_folder='static')
+
 
 # Routes for anonymous users
 @ecommerce.route('/', methods=['GET'])
