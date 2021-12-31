@@ -1,7 +1,7 @@
 from settings import db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from tools.datetime_format import datetime_generator as dtg
+from common.datetime import datetime_generator as dtg
 
 
 class User(db.Model, UserMixin):

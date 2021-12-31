@@ -1,4 +1,4 @@
-from tools.database import db
+from common.database import db
 from datetime import datetime as d
 
 

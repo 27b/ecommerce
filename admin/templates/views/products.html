@@ -33,7 +33,7 @@
             {% for product in products %}
                 <div class="product">
                     <div class="information">
-                        <img class="image" src="/static/images/uploads/{{product.images[0]}}" alt="{{product.name}}"/>
+                        <img class="image" src="/static/images/uploads/products/{{product.images[0]}}" alt="{{product.name}}"/>
                         <p class="title">
                             {% if product.visible == 1 %}
                                 <span class="bubble bg-blue"></span>
@@ -81,7 +81,7 @@
                 </a>
                 {% for image in product.images %}
                     <div class="image">
-                        <img src="/static/images/uploads/{{image}}" alt="">
+                        <img src="/static/images/uploads/products/{{image}}" alt="">
                         <a href="#Link">x</a>
                     </div>
                 {% endfor %}

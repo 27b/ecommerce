@@ -2,14 +2,14 @@ from flask import current_app, Blueprint, render_template, request, redirect,\
                   url_for, flash
 from flask_login import login_required, current_user
 
-from admin.forms import ProductForm
-
-from user import User
-from admin.models import Notification
 from ecommerce.models import Product, Payment, Order
-from tools.database import db
 
-from tools.tools import safe_url, create_notification
+from .models import Notification
+from .forms import ProductForm
+
+from common.user import User
+from common.database import db
+from common.tools import safe_url, create_notification
 
 from os import path
 from uuid import uuid4
@@ -94,7 +94,8 @@ def new_product():
                     raise Exception('No selected file.')
                 else:
                     file_name = uuid4().hex
-                    directory = current_app.config['UPLOAD_FOLDER']
+                    upload_folder = current_app.config['UPLOAD_FOLDER']
+                    directory = upload_folder + '/products'
                     file.save(path.join(directory, file_name))
                     secure_filenames.append(file_name)
 

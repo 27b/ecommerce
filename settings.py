@@ -32,7 +32,7 @@ db = SQLAlchemy()
 db.init_app(app)
 
 # Import database models
-from user import *
+from common.user import *
 from ecommerce.models import *
 from admin.models import *
 

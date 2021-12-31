@@ -1,6 +1,6 @@
 from uuid import uuid4
 from datetime import datetime as dt
-from tools.send_email import send_email
+from tools.email import send_email
 
 
 class VerificateEmail:

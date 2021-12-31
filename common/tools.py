@@ -1,5 +1,5 @@
 from slugify import slugify
-from tools.database import db
+from common.database import db
 from admin.models import Notification
 
 

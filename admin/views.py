@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request, flash
-from tools.database import db
-from tools.views import ViewMixin
+from common.database import db
+from common.views import ViewMixin
 from ecommerce.models import Category, Product, Order
 from .forms import CategoryForm
 
@@ -98,7 +98,7 @@ class Orders(ViewMixin):
     """ Class based view of orders. """
     
     def get(self):
-        print('Hello World')
+        self.context['orders'] = Order.query.all()
 
     def post(self):
         print('Hello World')

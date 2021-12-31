@@ -55,7 +55,7 @@
                 {% for product in products %}
                     <div class="product">
                         <div class="information">
-                            <img class="image" src="/static/images/uploads/{{product.images[0]}}" alt="{{product.name}}"/>
+                            <img class="image" src="/static/images/uploads/products/{{product.images[0]}}" alt="{{product.name}}"/>
                             <p class="title">
                                 {% if product.deleted == 1 %}
                                     <span class="bubble bg-orange"></span>

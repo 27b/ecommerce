@@ -1,5 +1,5 @@
-from tools.database import db
-from tools.datetime_format import datetime_generator as dtg
+from common.database import db
+from common.datetime import datetime_generator as dtg
 
 
 class Setting(db.Model):
