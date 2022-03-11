@@ -2,10 +2,10 @@ from flask import request, redirect, url_for, abort, render_template, flash
 from flask.views import View
 
 
-class ViewMixin(View):
+class MethodView(View):
     """
     This class extends other class with a state and functions based on Flask
-    View, you can re-write .get() and .post() methods.
+    View, you can re-write .get(), .post(), .put() and .delete() methods.
     """
     methods = ['GET', 'POST']
 
@@ -32,7 +32,7 @@ class ViewMixin(View):
 
     def dispatch_request(self, **kwargs):
         """
-        Depending on the method of the query, it executes amethod
+        Depending on the method of the query, it executes a method
         of the class, if the method is post refresh the page.
         """
         try:
@@ -40,8 +40,12 @@ class ViewMixin(View):
                 self.get(**kwargs)
             elif request.method == 'POST':
                 self.post(**kwargs)
+            elif request.method == 'PUT':
+                self.put(**kwargs)
+            elif request.method == 'DELETE':
+                self.delete(**kwargs)
             else:
-                abort(500)
+                abort(404)
 
         except Exception as error:
             flash(error, 'error')
@@ -79,33 +83,7 @@ class ViewMixin(View):
         when the request method is post.
         """
         raise NotImplementedError
-
-
-class ViewExtendedMixin(ViewMixin, View):
-    """
-    This class extends other class with a state and functions based on Flask
-    View, you can re-write .get(), post(), .put() and .delete() methods.
-    """
-    methods = ['GET', 'POST', 'PUT', 'DELETE']
-
-    def dispatch_request(self, **kwargs):
-        try:
-            if request.method == 'GET':
-                self.get(**kwargs)
-            elif request.method == 'POST':
-                self.post(**kwargs)
-            elif request.method == 'PUT':
-                self.put(**kwargs)
-            elif request.method == 'DELETE':
-                self.delete(**kwargs)
-            else: abort(500)
-
-        except Exception as error:
-            print(error)
-
-        finally:
-            return self.end_method()
-
+    
     def put(self, **kwargs):
         """ Method not implemented. """
         raise NotImplementedError

@@ -1,11 +1,11 @@
 from flask import request, flash
 from common.database import db
-from common.views import ViewMixin
+from common.views import MethodView
 from ecommerce.models import Category, Product, Order
 from .forms import CategoryForm
 
 
-class Categories(ViewMixin):
+class Categories(MethodView):
     """ Class based view of categories. """
 
     def get(self):
@@ -42,7 +42,7 @@ class Categories(ViewMixin):
             flash('Invalid form', 'error')
 
 
-class CategoriesEditor(ViewMixin):
+class CategoriesEditor(MethodView):
     """ Class based view for individual and use actions. """
 
     def get(self, category_id):
@@ -78,7 +78,7 @@ class CategoriesEditor(ViewMixin):
             raise Exception('Wrong category id.')
 
 
-class CategoriesEditorActions(ViewMixin):
+class CategoriesEditorActions(MethodView):
     """ Delete category. """
     methods = ['POST']
 
@@ -95,7 +95,7 @@ class CategoriesEditorActions(ViewMixin):
             raise Exception('Incorrect name, try again.')
 
 
-class Orders(ViewMixin):
+class Orders(MethodView):
     """ Class based view of orders. """
     
     def get(self):
@@ -105,7 +105,7 @@ class Orders(ViewMixin):
         print('Hello World')
         
 
-class OrdersEditor(ViewMixin):
+class OrdersEditor(MethodView):
     """ Class based view for individual and use actions. """
     
     def get(self, order_id):
