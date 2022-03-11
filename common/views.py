@@ -85,9 +85,15 @@ class MethodView(View):
         raise NotImplementedError
     
     def put(self, **kwargs):
-        """ Method not implemented. """
+        """
+        Pass to this method the code that you want to be executed
+        when the request method is put.
+        """
         raise NotImplementedError
 
     def delete(self, **kwargs):
-        """ Method not implemented. """
+        """
+        Pass to this method the code that you want to be executed
+        when the request method is delete.
+        """
         raise NotImplementedError

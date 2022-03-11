@@ -46,4 +46,3 @@ def create_notification(title: str, information: str, link=None) -> dict:
 
     finally:
         return status
-

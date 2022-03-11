@@ -1,6 +1,6 @@
 from uuid import uuid4
 from datetime import datetime as dt
-from tools.email import send_email
+from common.email import send_email
 
 
 class VerificateEmail:
@@ -55,7 +55,8 @@ class VerificateEmail:
     @classmethod
     def verificate_email(cls, email: str, code: str) -> dict | None:
         """ Check list and clear old emails, if true return true and del. """
-        # TODO
+        # TODO: Check each element in the list, if the element is valid or
+        # false do something
         for item in cls.__waiting_list:
             if item['datetime'] < dt.utcnow:
                 cls.__waiting_list.remove(item)

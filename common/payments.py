@@ -1,3 +1,14 @@
+class IPayload:
+    """ Payload interface. """
+
+    def __init__(self):
+        """ Not implemented method. """
+        pass
+
+    def status(self) -> None:
+        """ Not implemented method. """
+
+
 class IPayment:
     """ Payment interface. """
 
@@ -12,17 +23,6 @@ class IPayment:
     def send_payment(self, payload: IPayload) -> dict:
         """ Not implemented method. """
         pass
-
-
-class IPayload:
-    """ Payload interface. """
-
-    def __init__(self):
-        """ Not implemented method. """
-        pass
-
-    def status(self) -> None:
-        """ Not implemented method. """
 
 
 class RESTPayload(IPayload):

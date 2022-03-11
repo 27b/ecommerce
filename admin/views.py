@@ -5,7 +5,8 @@ from ecommerce.models import Category, Product, Order
 from .forms import CategoryForm
 
 
-class Categories(MethodView):
+
+class CategoryView(MethodView):
     """ Class based view of categories. """
 
     def get(self):
@@ -18,7 +19,8 @@ class Categories(MethodView):
         if view == 'add':
             self.context['category_form'] = CategoryForm()
         elif visible == "0" or visible == "1":
-            self.context['categories'] = Category.query.filter_by(visible=visible)
+            self.context['categories'] = Category.query \
+                                                 .filter_by(visible=visible)
         else:
             self.context['categories'] = Category.query.all()
 
@@ -42,7 +44,7 @@ class Categories(MethodView):
             flash('Invalid form', 'error')
 
 
-class CategoriesEditor(MethodView):
+class CategoryEditorView(MethodView):
     """ Class based view for individual and use actions. """
 
     def get(self, category_id):
@@ -78,7 +80,7 @@ class CategoriesEditor(MethodView):
             raise Exception('Wrong category id.')
 
 
-class CategoriesEditorActions(MethodView):
+class CategoryEditorActionsView(MethodView):
     """ Delete category. """
     methods = ['POST']
 
@@ -95,7 +97,7 @@ class CategoriesEditorActions(MethodView):
             raise Exception('Incorrect name, try again.')
 
 
-class Orders(MethodView):
+class OrderView(MethodView):
     """ Class based view of orders. """
     
     def get(self):
@@ -103,9 +105,9 @@ class Orders(MethodView):
 
     def post(self):
         print('Hello World')
-        
 
-class OrdersEditor(MethodView):
+
+class OrderEditorView(MethodView):
     """ Class based view for individual and use actions. """
     
     def get(self, order_id):

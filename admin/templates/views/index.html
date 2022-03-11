@@ -8,9 +8,9 @@
 <div class="main">
    <h3 class="title">Dashboard</h3> 
    <div class="button bg-green">Welcome {{ current_user.email }}</div>
-   <div class="button bg-g-cyan">Users: 623</div>
-   <div class="button bg-g-cyan">Products: 24</div>
-   <div class="button bg-g-cyan">Orders: 3</div>
+   <div class="button bg-g-cyan">Users: {{ context.users }}</div>
+   <div class="button bg-g-cyan">Products: {{ context.products }}</div>
+   <div class="button bg-g-cyan">Orders: {{ context.orders }}</div>
    <div class="button bg-g-cyan">Visitors today: 83</div>
 </div>
 <div class="tools">

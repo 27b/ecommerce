@@ -1,22 +1,22 @@
 from flask import current_app, Blueprint, render_template, request, redirect,\
                   url_for, flash
 from flask_login import login_required, current_user
-
 from ecommerce.models import Product, Payment, Order
-
 from .models import Notification
 from .forms import ProductForm
-
 from common.user import User
 from common.database import db
 from common.tools import safe_url, create_notification
-
 from os import path
 from uuid import uuid4
 
 
-admin = Blueprint('admin', __name__, template_folder='templates',
-        static_folder='static')
+admin = Blueprint(
+    'admin',
+    __name__,
+    template_folder='templates',
+    static_folder='static'
+)
 
 @admin.before_request
 def check_admin():
@@ -33,12 +33,20 @@ def inject_notifications():
 
     return dict(notifications=notifications)
 
+#
+# Function Based Views --------------------------------------------------------
+#
 
 @admin.route('/', methods=['GET'])
 @login_required
 def index():
     """ Dashboard. """
-    return render_template('views/index.html')
+    context = {
+        'users': User.query.count(),
+        'products': Product.query.count(),
+        'orders': Order.query.count(),
+    }
+    return render_template('views/index.html', context=context)
 
 
 @admin.route('/products/', methods=['GET', 'POST'])
@@ -261,40 +269,43 @@ def users_action(user_email, action):
 
     return redirect(url_for('admin.users'))
 
+#
+# Class Based Views -----------------------------------------------------------
+#
 
-from .views import Categories, CategoriesEditor, CategoriesEditorActions
-from .views import Orders, OrdersEditor
+from .views import CategoryView, CategoryEditorView, CategoryEditorActionsView
+from .views import OrderView, OrderEditorView
 
 
 admin.add_url_rule('/categories/',
-    view_func=Categories.as_view(
+    view_func=CategoryView.as_view(
         'categories', template_name='views/categories.html'
     )
 )
 
 admin.add_url_rule('/categories/<category_id>/',
-    view_func=CategoriesEditor.as_view(
+    view_func=CategoryEditorView.as_view(
         'categories_editor', template_name='views/categories.html'
     )
 )
 
 admin.add_url_rule(
     '/categories/<category_id>/<action>',
-    view_func=CategoriesEditorActions.as_view(
+    view_func=CategoryEditorActionsView.as_view(
         'categories_editor_actions', url_to_redirect='admin.categories'
     )
 )
 
 admin.add_url_rule(
     '/orders/',
-    view_func=Orders.as_view(
+    view_func=OrderView.as_view(
         'orders', template_name='views/orders.html'
     )
 )
 
 admin.add_url_rule(
     '/orders/<order_id>/',
-    view_func=OrdersEditor.as_view(
+    view_func=OrderEditorView.as_view(
         'orders_editor', template_name='views/orders.html'
     )
 )
