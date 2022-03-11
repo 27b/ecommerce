@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, abort, flash
+from flask import Blueprint, render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from ecommerce.forms import RegisterForm, LoginForm
 from ecommerce.models import Category, Product
@@ -38,7 +38,7 @@ def register():
             db.session.add(new_user)
             db.session.commit()
 
-            #logger.info(f'New user: {new_user.email}')
+            # logger.info(f'New user: {new_user.email}')
 
             return redirect(url_for('ecommerce.login'))
 

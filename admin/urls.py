@@ -201,7 +201,7 @@ def products_action(product_url, action):
                 db.session.delete(product)
 
             else:
-                raise Exception('Action not sopported.')
+                raise Exception('Action not supported.')
 
             db.session.commit()
 
