@@ -8,10 +8,10 @@ from datetime import timedelta
 from os import getenv, getcwd
 
 
-# APPLICACION INSTANCE
+# APPLICATION INSTANCE
 app = Flask(__name__, static_url_path="/")
 
-# APPLICACION CONFIG
+# APPLICATION CONFIG
 load_dotenv()
 app.config['FLASK_ENV'] = getenv('FLASK_ENV')
 app.config['SECRET_KEY'] = getenv('SECRET_KEY')
@@ -31,7 +31,7 @@ csrf.init_app(app)
 db = SQLAlchemy()
 db.init_app(app)
 
-# Import database models
+# Import database models here.
 from common.user import *
 from ecommerce.models import *
 from admin.models import *
@@ -39,12 +39,10 @@ from admin.models import *
 migrate = Migrate(app, db)
 
 # LOGIN MANAGER
-# Configure the behavior of sessions.
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.session_protection = 'strong'
 
-# Lgoin manager handlers
 @login_manager.user_loader
 def user_loader(user_id: int):
     return User.query.filter_by(id=user_id).first()
@@ -59,4 +57,3 @@ if __name__ == '__main__':
     with app.app_context():
         db.drop_all()
         db.create_all(app=app)
-
